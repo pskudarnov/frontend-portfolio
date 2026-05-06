@@ -6,65 +6,124 @@ export const navItems = [
   { href: "#contact", label: "Контакты" },
 ] as const;
 
-export const techStack = ["Next.js", "TypeScript", "React", "Node.js", "PostgreSQL"] as const;
+export const techStack = ["React", "Next.js", "TypeScript", "Accessibility", "Technical SEO"] as const;
+
+export const hero = {
+  role: "Frontend Developer / Frontend Engineer",
+  headline: "Павел Скударнов",
+  subtitle:
+    "Разрабатываю быстрые, адаптивные и SEO-оптимизированные веб-интерфейсы на React, Next.js и TypeScript.",
+  supporting:
+    "Фокус: frontend architecture, accessibility, performance, SEO и clean UI.",
+} as const;
+
+export const aboutText =
+  "Фронтенд-разработчик с коммерческим опытом в создании интерфейсов для SaaS, dashboard-систем, лендингов и внутренних кабинетов. Работаю с React, Next.js, TypeScript и современным frontend tooling. Умею не только верстать интерфейсы, но и думать о продукте: UX, SEO, производительность, поддерживаемость и доступность.";
 
 export const experience = [
   {
     role: "Frontend Developer",
-    company: "SEO Technology",
-    period: "2022 — Сейчас",
-    description: "Разрабатываю продуктовые интерфейсы, ускоряю рендеринг и внедряю архитектурные frontend-паттерны.",
+    company: "Product / Commercial Projects",
+    period: "2021 — настоящее время",
+    bullets: [
+      "Разрабатывал адаптивные интерфейсы для dashboard-систем и клиентских кабинетов.",
+      "Улучшал структуру SCSS/компонентов и переиспользуемость UI.",
+      "Работал с React, TypeScript, i18n, accessibility и сложными интерактивными состояниями.",
+      "Участвовал в SEO и performance улучшениях.",
+    ],
   },
   {
-    role: "Freelance Frontend Engineer",
-    company: "Various Projects",
-    period: "2020 — 2022",
-    description: "Запускал коммерческие веб-приложения на React/Next.js с фокусом на UX, SEO и стабильность в production.",
+    role: "Web Developer",
+    company: "Freelance / Client Projects",
+    period: "2019 — 2021",
+    bullets: [
+      "Создавал лендинги, промо-страницы и корпоративные сайты.",
+      "Интегрировал формы, навигацию, адаптивную верстку и базовую SEO-структуру.",
+      "Работал с HTML, CSS/SCSS, JavaScript, PHP/Blade.",
+    ],
+  },
+  {
+    role: "Frontend / AI-assisted Engineering",
+    company: "Personal Projects",
+    period: "2024 — настоящее время",
+    bullets: [
+      "Разрабатываю SEO Audit Platform на Next.js и TypeScript.",
+      "Использую AI-assisted workflows для QA, архитектурного планирования и ускорения разработки.",
+      "Пишу документацию, README, архитектурные планы и проверочные сценарии.",
+    ],
   },
 ] as const;
 
 export const skillGroups = [
   {
     title: "Frontend",
-    items: ["React", "Next.js", "TypeScript", "Tailwind CSS", "Framer Motion"],
+    items: ["React", "Next.js", "TypeScript", "JavaScript", "HTML5", "CSS3", "SCSS Modules", "Tailwind CSS"],
   },
   {
-    title: "Backend",
-    items: ["Node.js", "Express", "REST API", "PostgreSQL", "Prisma"],
+    title: "UI Engineering",
+    items: ["Responsive UI", "Accessibility", "Semantic HTML", "Design Systems", "Storybook", "SVG sprites", "Animation"],
   },
   {
-    title: "Инструменты",
-    items: ["Git", "GitHub Actions", "Vercel", "Figma", "Linux"],
+    title: "Architecture & Quality",
+    items: ["Component Architecture", "Feature-based Structure", "ESLint", "Prettier", "Testing", "CI checks", "Code Review"],
   },
   {
-    title: "Другое",
-    items: ["SEO", "Accessibility", "Web Performance", "Architecture", "Code Review"],
+    title: "Product & SEO",
+    items: ["Technical SEO", "Metadata", "Sitemap", "i18n", "Performance", "Lighthouse", "UX", "Conversion-focused UI"],
   },
 ] as const;
 
 export const projects = [
   {
     title: "SEO Audit Platform",
-    description: "SaaS-платформа для автоматического SEO-аудита с генерацией отчётов и actionable рекомендаций.",
-    tags: ["Next.js", "TypeScript", "PostgreSQL"],
+    description:
+      "Собственный SaaS-проект для автоматического SEO-аудита сайтов, генерации отчётов и проверки технических SEO-факторов.",
+    highlights: [
+      "Next.js App Router + TypeScript",
+      "protected report pages",
+      "PDF report generation",
+      "i18n and SEO metadata",
+      "worker/retry architecture",
+    ],
     image: "/projects/seo-audit.svg",
-    demo: "https://example.com",
-    github: "https://github.com/pskudarnov/seo-audit",
+    demo: "https://demo-link-placeholder.example",
+    github: "https://github-link-placeholder.example",
   },
   {
     title: "Affiliate Dashboard UI",
-    description: "Интерфейс аналитики партнёрских метрик: отчёты, сегментация и visual insights в real-time.",
-    tags: ["React", "Tailwind", "Charts"],
+    description:
+      "Коммерческий UI/case для партнёрского кабинета с навигацией, dropdown-сценариями, адаптивной вёрсткой и accessibility-паттернами.",
+    highlights: [
+      "React + TypeScript",
+      "SCSS architecture",
+      "ARIA states",
+      "reusable UI components",
+      "responsive dashboard layout",
+    ],
     image: "/projects/affiliate-dashboard.svg",
-    demo: "https://example.com",
-    github: "https://github.com/pskudarnov",
+    demo: "https://demo-link-placeholder.example",
+    github: "https://github-link-placeholder.example",
   },
   {
-    title: "AI Workflow Toolkit",
-    description: "Набор инженерных UI-инструментов для AI-воркфлоу: orchestration, tracing и quality gates.",
-    tags: ["Next.js", "Node.js", "AI"],
+    title: "AI-assisted Engineering Workflow",
+    description:
+      "Набор процессов и документации для работы с Codex/Qwen/Spec Kit: постановка задач, QA-проверки, архитектурные планы и CI-first workflow.",
+    highlights: [
+      "agent task prompts",
+      "QA checklists",
+      "architecture docs",
+      "deployment docs",
+      "CI validation flow",
+    ],
     image: "/projects/ai-toolkit.svg",
-    demo: "https://example.com",
-    github: "https://github.com/pskudarnov",
+    demo: "https://demo-link-placeholder.example",
+    github: "https://github-link-placeholder.example",
   },
+] as const;
+
+export const contacts = [
+  { label: "GitHub", href: "https://github-link-placeholder.example" },
+  { label: "Telegram", href: "https://telegram-link-placeholder.example" },
+  { label: "Email", href: "mailto:email-placeholder@example.com" },
+  { label: "Resume PDF", href: "/resume.pdf" },
 ] as const;

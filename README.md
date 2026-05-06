@@ -1,38 +1,21 @@
 # frontend-portfolio
 
-Premium minimal engineering portfolio/resume website for frontend developer.
+Production-ready personal resume portfolio for Pavel Skudarnov (Middle Frontend Developer) in premium minimal dark style.
 
-## Overview
+## Description
 
-This project is a production-ready personal portfolio built with Next.js App Router and TypeScript.
-Design direction: Vercel/Linear/Railway style minimalism — dark theme, strong typography, clean spacing, subtle interactions.
+This project is a focused resume-style portfolio built as a modern engineering landing page.
+It highlights practical frontend experience, commercial UI delivery, architecture mindset, accessibility, and technical SEO.
 
-## Features
+Design direction:
+- dark premium minimal UI
+- clean typography and spacing
+- subtle motion and hover states
+- no overdesigned visual noise
 
-- Next.js 16 App Router
-- React + TypeScript strict mode
-- Tailwind CSS v4
-- Framer Motion (subtle reveal/hover)
-- Responsive mobile-first layout
-- Accessibility-first focus styles and semantic sections
-- SEO-ready metadata (OpenGraph, Twitter cards, canonical)
-- `robots.ts` + `sitemap.ts`
-- Production build ready for Vercel
+## Stack
 
-## Sections
-
-- Sticky Header with navigation and social links
-- Hero
-- About
-- Experience timeline
-- Skills cards
-- Projects showcase
-- Contact CTA
-- Minimal footer
-
-## Tech Stack
-
-- Next.js
+- Next.js (App Router)
 - React
 - TypeScript
 - Tailwind CSS
@@ -41,63 +24,62 @@ Design direction: Vercel/Linear/Railway style minimalism — dark theme, strong 
 - ESLint
 - Prettier
 
-## Project Structure
+## Sections
 
-src/
-- app/
-- components/
-- shared/
-- styles/
-- data/
-- hooks/
+- Header (navigation + quick links)
+- Hero (positioning + key focus)
+- About
+- Experience timeline
+- Skills (4 groups)
+- Projects (3 focused cases + highlights)
+- Contacts CTA
+- Footer
 
-public/
-- projects/
-- avatar-placeholder.svg
-- og-image.svg
-- resume.pdf
-
-## Screenshots
-
-Add real screenshots after deployment:
-
-- `public/screenshots/home-desktop.png`
-- `public/screenshots/home-mobile.png`
-
-## Lighthouse Goals
-
-- Performance: 95+
-- Accessibility: 100
-- Best Practices: 100
-- SEO: 100
-
-## Local Development
+## Development
 
 ```bash
 npm install
-npm run lint
-npm run typecheck
-npm run build
 npm run dev
 ```
 
-## Environment
+Open http://localhost:3000
 
-Copy and adjust:
+## Build & Quality Checks
 
 ```bash
-cp .env.example .env.local
+npm run lint
+npm run typecheck
+npm run build
 ```
 
-## Deployment (Vercel)
+## Deploy
+
+Recommended: Vercel
 
 1. Push repository to GitHub
-2. Import project in Vercel
-3. Set environment variables (if needed)
+2. Import repository in Vercel
+3. Set environment variables if needed
 4. Deploy
 
-Build command: `npm run build`
-Output: Next.js default
+## Customization
+
+Main content source:
+- `src/data/portfolio.ts`
+
+Page composition:
+- `src/app/page.tsx`
+
+SEO metadata:
+- `src/app/layout.tsx`
+
+SEO endpoints:
+- `src/app/robots.ts`
+- `src/app/sitemap.ts`
+
+Visual assets:
+- `public/projects/*`
+- `public/og-image.svg`
+- `public/resume.pdf`
 
 ## License
 

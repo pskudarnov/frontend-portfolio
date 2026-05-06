@@ -15,9 +15,9 @@ const geistMono = Geist_Mono({
 });
 
 const siteUrl = "https://frontend-portfolio.vercel.app";
-const siteTitle = "Павел Скударнов — Frontend Engineer";
+const siteTitle = "Павел Скударнов — Frontend Developer";
 const siteDescription =
-  "Premium minimal portfolio frontend developer: Next.js, React, TypeScript, SEO, performance.";
+  "Frontend Developer на React, Next.js и TypeScript. Разработка адаптивных, SEO-оптимизированных и доступных веб-интерфейсов.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
