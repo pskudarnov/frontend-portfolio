@@ -27,9 +27,12 @@ import {
   techStack,
 } from "@/data/portfolio";
 
-const skillIcons = [Layers, Sparkles, Wrench, Code2] as const;
+const skillIcons = [Code2, Layers, Wrench, Sparkles, Blocks] as const;
 
 export default function HomePage() {
+  const githubHref = contacts.find((contact) => contact.label === "GitHub")?.href ?? "https://github.com/pskudarnov";
+  const telegramHref = contacts.find((contact) => contact.label === "Telegram")?.href ?? "https://t.me/pskudarnov";
+
   return (
     <>
       <header className="sticky top-0 z-50 border-b border-zinc-800/80 bg-[#07080d]/85 backdrop-blur-md">
@@ -55,7 +58,7 @@ export default function HomePage() {
 
           <div className="flex items-center gap-2">
             <Link
-              href="https://github-link-placeholder.example"
+              href={githubHref}
               target="_blank"
               className="inline-flex items-center gap-2 rounded-md border border-zinc-700 px-3 py-2 text-sm text-zinc-200 transition-all duration-200 hover:border-zinc-500 hover:bg-zinc-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-500"
               aria-label="GitHub профиль"
@@ -64,7 +67,7 @@ export default function HomePage() {
               <span className="hidden md:inline">GitHub</span>
             </Link>
             <Link
-              href="https://telegram-link-placeholder.example"
+              href={telegramHref}
               target="_blank"
               className="hidden items-center gap-2 rounded-md border border-zinc-700 px-3 py-2 text-sm text-zinc-200 transition-all duration-200 hover:border-zinc-500 hover:bg-zinc-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-500 md:inline-flex"
               aria-label="Telegram"
@@ -153,7 +156,7 @@ export default function HomePage() {
                     />
                     <div>
                       <p className="text-sm font-medium text-zinc-100">Pavel Skudarnov</p>
-                      <p className="text-xs text-zinc-400">Frontend Engineer</p>
+                      <p className="text-xs text-zinc-400">Senior Frontend Developer</p>
                     </div>
                   </div>
                   <div className="rounded-lg border border-zinc-800 bg-black/30 p-3 font-mono text-xs leading-6 text-zinc-300">
@@ -222,7 +225,7 @@ export default function HomePage() {
             <h2 className="text-3xl font-semibold text-zinc-100">Навыки</h2>
             <div className="mt-10 grid gap-4 sm:grid-cols-2">
               {skillGroups.map((group, index) => {
-                const Icon = skillIcons[index];
+                const Icon = skillIcons[index] ?? Code2;
 
                 return (
                   <article
@@ -249,8 +252,8 @@ export default function HomePage() {
 
         <AnimatedSection id="projects" className="py-20">
           <Container>
-            <h2 className="text-3xl font-semibold text-zinc-100">Selected Engineering Work</h2>
-            <div className="mt-10 grid gap-6 lg:grid-cols-3">
+            <h2 className="text-3xl font-semibold text-zinc-100">Ключевые проекты и кейсы</h2>
+            <div className="mt-10 grid gap-6 lg:grid-cols-2">
               {projects.map((project) => (
                 <article
                   key={project.title}
@@ -285,27 +288,33 @@ export default function HomePage() {
                       ))}
                     </ul>
 
-                    <div className="mt-6 grid grid-cols-1 gap-2 sm:grid-cols-3">
-                      <Link
-                        href={project.actions.demo}
-                        target="_blank"
-                        className="inline-flex items-center justify-center gap-1 rounded-md border border-zinc-700 px-3 py-2 text-xs font-medium text-zinc-200 transition-all duration-200 hover:border-zinc-500 hover:bg-zinc-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-500"
-                      >
-                        Live Demo <ExternalLink className="size-3.5" />
-                      </Link>
-                      <Link
-                        href={project.actions.github}
-                        target="_blank"
-                        className="inline-flex items-center justify-center gap-1 rounded-md border border-zinc-700 px-3 py-2 text-xs font-medium text-zinc-200 transition-all duration-200 hover:border-zinc-500 hover:bg-zinc-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-500"
-                      >
-                        GitHub <GitBranch className="size-3.5" />
-                      </Link>
-                      <Link
-                        href={project.actions.caseStudy}
-                        className="inline-flex items-center justify-center gap-1 rounded-md bg-violet-500/90 px-3 py-2 text-xs font-medium text-white transition-all duration-200 hover:bg-violet-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-500"
-                      >
-                        Case Study <ArrowUpRight className="size-3.5" />
-                      </Link>
+                    <div className="mt-6 flex flex-wrap gap-2">
+                      {project.actions.demo ? (
+                        <Link
+                          href={project.actions.demo}
+                          target="_blank"
+                          className="inline-flex items-center justify-center gap-1 rounded-md border border-zinc-700 px-3 py-2 text-xs font-medium text-zinc-200 transition-all duration-200 hover:border-zinc-500 hover:bg-zinc-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-500"
+                        >
+                          Live Demo <ExternalLink className="size-3.5" />
+                        </Link>
+                      ) : null}
+                      {project.actions.github ? (
+                        <Link
+                          href={project.actions.github}
+                          target="_blank"
+                          className="inline-flex items-center justify-center gap-1 rounded-md border border-zinc-700 px-3 py-2 text-xs font-medium text-zinc-200 transition-all duration-200 hover:border-zinc-500 hover:bg-zinc-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-500"
+                        >
+                          GitHub <GitBranch className="size-3.5" />
+                        </Link>
+                      ) : null}
+                      {project.actions.caseStudy ? (
+                        <Link
+                          href={project.actions.caseStudy}
+                          className="inline-flex items-center justify-center gap-1 rounded-md bg-violet-500/90 px-3 py-2 text-xs font-medium text-white transition-all duration-200 hover:bg-violet-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-500"
+                        >
+                          Case Study <ArrowUpRight className="size-3.5" />
+                        </Link>
+                      ) : null}
                     </div>
                   </div>
                 </article>
@@ -319,7 +328,7 @@ export default function HomePage() {
             <div className="rounded-2xl border border-zinc-800 bg-gradient-to-br from-zinc-950 to-zinc-900 p-8 text-center sm:p-10">
               <h2 className="text-2xl font-semibold text-zinc-100 sm:text-3xl">Есть проект или предложение?</h2>
               <p className="mt-4 text-zinc-400">
-                Открыт к frontend-задачам, проектной работе и продуктовой разработке.
+                Открыт к frontend-задачам, enterprise-продуктам, проектной работе и техническим консультациям.
               </p>
               <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
                 {contacts.map((contact) => (

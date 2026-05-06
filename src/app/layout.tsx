@@ -15,9 +15,9 @@ const geistMono = Geist_Mono({
 });
 
 const siteUrl = "http://64.188.63.171:3200";
-const siteTitle = "Павел Скударнов — Frontend Developer";
+const siteTitle = "Павел Скударнов — Senior Frontend Developer";
 const siteDescription =
-  "Frontend Developer на React, Next.js и TypeScript. Разработка адаптивных, SEO-оптимизированных и доступных веб-интерфейсов.";
+  "Senior Frontend Developer с 8+ годами опыта. React, Next.js, TypeScript, SSR, frontend architecture, performance optimization, code review и enterprise web applications.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),

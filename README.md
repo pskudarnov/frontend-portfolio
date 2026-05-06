@@ -1,19 +1,23 @@
-# frontend-portfolio
+# Pavel Skudarnov — Senior Frontend Developer Portfolio
 
-Production-ready personal resume portfolio for Pavel Skudarnov (Middle Frontend Developer) in premium minimal dark style.
+Senior resume portfolio for Pavel Skudarnov in dark premium minimal style.
 
-## Description
+## Profile
 
-This project is a focused resume-style portfolio built as a modern engineering landing page.
-It highlights practical frontend experience, commercial UI delivery, architecture mindset, accessibility, and technical SEO.
+- Role: Senior Frontend Developer / Frontend Engineer
+- Experience: 8+ years (8 years 10 months)
+- Companies: SberTech, Rambler&Co
+- Focus: React, Next.js, TypeScript, SSR, frontend architecture, performance optimization, code review
 
-Design direction:
-- dark premium minimal UI
-- clean typography and spacing
-- subtle motion and hover states
-- no overdesigned visual noise
+## Project overview
 
-## Stack
+This is a production-ready resume portfolio focused on honest senior positioning:
+- enterprise frontend delivery
+- architecture and quality mindset
+- performance and accessibility
+- real experience timeline and case-based project section
+
+## Tech stack
 
 - Next.js (App Router)
 - React
@@ -22,16 +26,15 @@ Design direction:
 - Framer Motion
 - lucide-react
 - ESLint
-- Prettier
 
 ## Sections
 
-- Header (navigation + quick links)
-- Hero (positioning + key focus)
+- Header and navigation
+- Hero
 - About
-- Experience timeline
-- Skills (4 groups)
-- Projects (3 focused cases + highlights)
+- Experience
+- Skills (5 groups)
+- Key projects and cases (4 cases)
 - Contacts CTA
 - Footer
 
@@ -42,9 +45,9 @@ npm install
 npm run dev
 ```
 
-Open http://localhost:3000
+Open: http://localhost:3000
 
-## Build & Quality Checks
+## Quality checks
 
 ```bash
 npm run lint
@@ -52,34 +55,28 @@ npm run typecheck
 npm run build
 ```
 
-## Deploy
+## Deployment notes (temporary VPS)
 
-Recommended: Vercel
+Current temporary public URL:
+- http://64.188.63.171:3200
 
-1. Push repository to GitHub
-2. Import repository in Vercel
-3. Set environment variables if needed
-4. Deploy
+If running with PM2:
+```bash
+pm2 restart frontend-portfolio
+pm2 status
+```
 
-## Customization
+## Content sources
 
-Main content source:
-- `src/data/portfolio.ts`
+- Main content: `src/data/portfolio.ts`
+- Page composition/UI: `src/app/page.tsx`
+- SEO metadata: `src/app/layout.tsx`
+- SEO endpoints: `src/app/robots.ts`, `src/app/sitemap.ts`
 
-Page composition:
-- `src/app/page.tsx`
+## Resume PDF
 
-SEO metadata:
-- `src/app/layout.tsx`
-
-SEO endpoints:
-- `src/app/robots.ts`
-- `src/app/sitemap.ts`
-
-Visual assets:
-- `public/projects/*`
-- `public/og-image.svg`
-- `public/resume.pdf`
+- Public file path: `public/resume.pdf`
+- If you need to update it, replace this file with the latest resume export.
 
 ## License
 
