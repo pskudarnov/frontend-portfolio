@@ -19,7 +19,7 @@ This is a production-ready resume portfolio focused on honest senior positioning
 
 ## Showcase project cards
 
-FlowPilot, NordShop and StayFinder are featured showcase cards in the projects section:
+FlowPilot, NordShop, StayFinder and DevDocs are featured showcase cards in the projects section:
 
 FlowPilot:
 - Live Demo: http://64.188.63.171:3210
@@ -37,6 +37,12 @@ StayFinder:
 - Live Demo: http://64.188.63.171:3230
 - GitHub: https://github.com/pskudarnov/stayfinder-booking
 - Stack: Next.js, TypeScript, Tailwind CSS, React Hook Form, Zod
+- Purpose: showcase project with live demo and public code
+
+DevDocs:
+- Live Demo: http://64.188.63.171:3240
+- GitHub: https://github.com/pskudarnov/devdocs-portal
+- Stack: Next.js, TypeScript, Tailwind CSS
 - Purpose: showcase project with live demo and public code
 
 ## Tech stack
