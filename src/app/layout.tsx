@@ -14,7 +14,7 @@ const geistMono = Geist_Mono({
   display: "swap",
 });
 
-const siteUrl = "https://frontend-portfolio.vercel.app";
+const siteUrl = "http://64.188.63.171:3200";
 const siteTitle = "Павел Скударнов — Frontend Developer";
 const siteDescription =
   "Frontend Developer на React, Next.js и TypeScript. Разработка адаптивных, SEO-оптимизированных и доступных веб-интерфейсов.";
