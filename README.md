@@ -17,6 +17,14 @@ This is a production-ready resume portfolio focused on honest senior positioning
 - performance and accessibility
 - real experience timeline and case-based project section
 
+## Showcase project card
+
+FlowPilot is featured as the primary showcase card in the projects section:
+- Live Demo: http://64.188.63.171:3210
+- GitHub: https://github.com/pskudarnov/flowpilot-dashboard
+- Stack: Next.js, TypeScript, Tailwind CSS, Recharts
+- Purpose: showcase project with live demo and public code
+
 ## Tech stack
 
 - Next.js (App Router)

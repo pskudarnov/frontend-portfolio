@@ -307,7 +307,7 @@ export default function HomePage() {
                           rel="noreferrer"
                           className="inline-flex items-center justify-center gap-1 rounded-md border border-zinc-700 px-3 py-2 text-xs font-medium text-zinc-200 transition-all duration-200 hover:border-zinc-500 hover:bg-zinc-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-500"
                         >
-                          Live Demo <ExternalLink className="size-3.5" />
+                          Открыть demo <ExternalLink className="size-3.5" />
                         </Link>
                       ) : null}
                       {project.actions.github ? (

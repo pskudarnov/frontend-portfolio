@@ -129,22 +129,22 @@ export const skillGroups = [
 
 export const projects = [
   {
-    title: "GitVerse — платформа для работы с исходным кодом",
+    title: "FlowPilot — SaaS Analytics Dashboard",
     description:
-      "Enterprise-платформа для работы с репозиториями и исходным кодом. Участвовал в разработке ключевых frontend-модулей на Next.js, React, SSR, Tailwind CSS и Effector.",
-    techStack: ["Next.js", "React", "SSR", "Effector", "Tailwind CSS"],
+      "Production-ready showcase project: адаптивный SaaS dashboard для продуктовой аналитики с landing page, pricing page, charts, tables и mock data.",
+    techStack: ["Next.js", "TypeScript", "Tailwind CSS", "Recharts", "Responsive UI"],
     highlights: [
-      "Разработка и развитие ключевых модулей платформы",
-      "Проектирование масштабируемой frontend-архитектуры",
-      "SSR и оптимизация производительности",
-      "Сложная бизнес-логика и управление состоянием через Effector",
-      "Code review, API discussions и менторинг разработчиков",
+      "Landing, pricing и dashboard routes на Next.js App Router",
+      "Dashboard UI с метриками, графиками, таблицей задач и activity feed",
+      "Mock-data driven architecture без backend-зависимости",
+      "Responsive layout без horizontal overflow на mobile/tablet",
+      "SEO metadata, sitemap, robots и accessibility basics",
     ],
-    image: "/projects/gitverse.svg",
+    image: "/projects/flowpilot.svg",
     actions: {
-      demo: "https://gitverse.ru",
-      github: "",
-      caseStudy: "#contact",
+      demo: "http://64.188.63.171:3210",
+      github: "https://github.com/pskudarnov/flowpilot-dashboard",
+      caseStudy: "",
     },
   },
   {
