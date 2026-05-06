@@ -210,5 +210,5 @@ export const contacts = [
   { label: "GitHub", href: "https://github.com/pskudarnov" },
   { label: "Telegram", href: "https://t.me/pskudarnov" },
   { label: "Email", href: "mailto:pawel.skudarnov@yandex.ru" },
-  { label: "Resume PDF", href: "/resume.pdf" },
+  { label: "Резюме PDF", href: "/resume.pdf" },
 ] as const;

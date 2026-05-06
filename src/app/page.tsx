@@ -61,6 +61,7 @@ export default function HomePage() {
             <Link
               href={githubHref}
               target="_blank"
+              rel="noreferrer"
               className="inline-flex items-center gap-2 rounded-md border border-zinc-700 px-3 py-2 text-sm text-zinc-200 transition-all duration-200 hover:border-zinc-500 hover:bg-zinc-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-500"
               aria-label="GitHub профиль"
             >
@@ -70,14 +71,15 @@ export default function HomePage() {
             <Link
               href={telegramHref}
               target="_blank"
-              className="hidden items-center gap-2 rounded-md border border-zinc-700 px-3 py-2 text-sm text-zinc-200 transition-all duration-200 hover:border-zinc-500 hover:bg-zinc-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-500 md:inline-flex"
+              rel="noreferrer"
+              className="hidden items-center gap-2 rounded-md border border-zinc-700 px-3 py-2 text-sm text-zinc-200 transition-all duration-200 hover:border-zinc-500 hover:bg-zinc-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-500 lg:inline-flex"
               aria-label="Telegram"
             >
               <Send className="size-4" /> Telegram
             </Link>
             <a
               href="/resume.pdf"
-              className="hidden items-center gap-2 rounded-md bg-violet-500 px-3 py-2 text-sm font-medium text-white transition-all duration-200 hover:bg-violet-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-500 md:inline-flex"
+              className="hidden items-center gap-2 rounded-md bg-violet-500 px-3 py-2 text-sm font-medium text-white transition-all duration-200 hover:bg-violet-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-500 lg:inline-flex"
               aria-label="Скачать резюме"
             >
               Скачать резюме
@@ -190,7 +192,7 @@ export default function HomePage() {
           </Container>
         </AnimatedSection>
 
-        <AnimatedSection id="about" className="border-y border-zinc-900 py-20">
+        <AnimatedSection id="about" className="scroll-mt-24 border-y border-zinc-900 py-20">
           <Container>
             <h2 className="text-3xl font-semibold text-zinc-100">Обо мне</h2>
             <p className="mt-6 max-w-4xl text-lg leading-relaxed text-zinc-400">{aboutText}</p>
@@ -205,7 +207,7 @@ export default function HomePage() {
           </Container>
         </AnimatedSection>
 
-        <AnimatedSection id="experience" className="py-20">
+        <AnimatedSection id="experience" className="scroll-mt-24 py-20">
           <Container>
             <h2 className="text-3xl font-semibold text-zinc-100">Опыт</h2>
             <div className="mt-10 space-y-8 border-l border-zinc-800 pl-6">
@@ -229,7 +231,7 @@ export default function HomePage() {
           </Container>
         </AnimatedSection>
 
-        <AnimatedSection id="skills" className="border-y border-zinc-900 py-20">
+        <AnimatedSection id="skills" className="scroll-mt-24 border-y border-zinc-900 py-20">
           <Container>
             <h2 className="text-3xl font-semibold text-zinc-100">Навыки</h2>
             <div className="mt-10 grid gap-4 sm:grid-cols-2">
@@ -259,7 +261,7 @@ export default function HomePage() {
           </Container>
         </AnimatedSection>
 
-        <AnimatedSection id="projects" className="py-20">
+        <AnimatedSection id="projects" className="scroll-mt-24 py-20">
           <Container>
             <h2 className="text-3xl font-semibold text-zinc-100">Ключевые проекты и кейсы</h2>
             <div className="mt-10 grid gap-6 lg:grid-cols-2">
@@ -302,6 +304,7 @@ export default function HomePage() {
                         <Link
                           href={project.actions.demo}
                           target="_blank"
+                          rel="noreferrer"
                           className="inline-flex items-center justify-center gap-1 rounded-md border border-zinc-700 px-3 py-2 text-xs font-medium text-zinc-200 transition-all duration-200 hover:border-zinc-500 hover:bg-zinc-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-500"
                         >
                           Live Demo <ExternalLink className="size-3.5" />
@@ -311,6 +314,7 @@ export default function HomePage() {
                         <Link
                           href={project.actions.github}
                           target="_blank"
+                          rel="noreferrer"
                           className="inline-flex items-center justify-center gap-1 rounded-md border border-zinc-700 px-3 py-2 text-xs font-medium text-zinc-200 transition-all duration-200 hover:border-zinc-500 hover:bg-zinc-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-500"
                         >
                           GitHub <GitBranch className="size-3.5" />
@@ -332,7 +336,7 @@ export default function HomePage() {
           </Container>
         </AnimatedSection>
 
-        <AnimatedSection id="contact" className="py-20">
+        <AnimatedSection id="contact" className="scroll-mt-24 py-20">
           <Container>
             <div className="rounded-2xl border border-zinc-800 bg-gradient-to-br from-zinc-950 to-zinc-900 p-8 text-center sm:p-10">
               <h2 className="text-2xl font-semibold text-zinc-100 sm:text-3xl">Есть проект или предложение?</h2>
@@ -345,6 +349,7 @@ export default function HomePage() {
                     key={contact.label}
                     href={contact.href}
                     target={contact.href.startsWith("/") || contact.href.startsWith("mailto:") ? undefined : "_blank"}
+                    rel={contact.href.startsWith("/") || contact.href.startsWith("mailto:") ? undefined : "noreferrer"}
                     className="rounded-md border border-zinc-700 px-4 py-2 text-sm text-zinc-200 transition-all duration-200 hover:border-zinc-500 hover:bg-zinc-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-500"
                   >
                     {contact.label}
