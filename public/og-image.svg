@@ -1,0 +1,7 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect width="1200" height="630" fill="#07080D"/>
+<rect x="60" y="60" width="1080" height="510" rx="20" fill="#0D1018" stroke="#242B3F"/>
+<text x="120" y="250" fill="#F4F4F5" font-family="Arial, sans-serif" font-size="72" font-weight="700">Павел Скударнов</text>
+<text x="120" y="320" fill="#A1A1AA" font-family="Arial, sans-serif" font-size="42">Frontend Engineer</text>
+<text x="120" y="390" fill="#8B5CF6" font-family="Arial, sans-serif" font-size="30">Next.js · React · TypeScript · SEO</text>
+</svg>
