@@ -1,0 +1,22 @@
+{
+  "name": "Pavel Skudarnov Frontend Portfolio",
+  "short_name": "PS Portfolio",
+  "description": "Frontend engineer portfolio focused on production-ready React/Next.js interfaces.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#07080d",
+  "theme_color": "#07080d",
+  "lang": "ru",
+  "icons": [
+    {
+      "src": "/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    },
+    {
+      "src": "/apple-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    }
+  ]
+}

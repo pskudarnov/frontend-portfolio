@@ -1,214 +1,164 @@
 export const navItems = [
   { href: "#about", label: "Обо мне" },
   { href: "#experience", label: "Опыт" },
-  { href: "#projects", label: "Кейсы" },
+  { href: "#projects", label: "Проекты" },
   { href: "#skills", label: "Навыки" },
   { href: "#contact", label: "Контакты" },
 ] as const;
 
-export const techStack = ["React", "Next.js", "TypeScript", "SSR", "GraphQL", "Frontend Architecture"] as const;
+export const techStack = ["React", "Next.js", "TypeScript", "Accessibility", "Technical SEO"] as const;
 
 export const metrics = [
-  "8+ лет опыта",
-  "SberTech / Rambler&Co",
-  "React / Next.js / SSR",
-  "Architecture / Code Review",
+  { label: "Коммерческий опыт", value: "4+ года" },
+  { label: "Production релизы", value: "20+" },
+  { label: "Основной стек", value: "React / Next.js" },
+  { label: "Фокус", value: "A11y + SEO + UX" },
 ] as const;
 
 export const hero = {
-  role: "Senior Frontend Developer",
+  role: "Frontend Engineer",
   headline: "Павел Скударнов",
   subtitle:
-    "Разрабатываю масштабируемые frontend-приложения на React, Next.js и TypeScript для enterprise-продуктов.",
+    "Разрабатываю быстрые, доступные и SEO-ориентированные интерфейсы на React, Next.js и TypeScript.",
   supporting:
-    "Фокус: frontend architecture, SSR, performance, accessibility, code review и развитие сложных UI-систем.",
+    "Работаю от задачи до production: архитектура UI, стабильность, качество релиза и последующая поддержка.",
 } as const;
 
 export const aboutText =
-  "Senior Frontend Developer с 8+ годами опыта в разработке высоконагруженных веб-приложений. Специализируюсь на React, Next.js, TypeScript, SSR и построении масштабируемой frontend-архитектуры. Работал над enterprise-продуктами в SberTech и Rambler&Co, участвовал в разработке GitVerse и 21-school, проводил code review, менторил разработчиков и занимался оптимизацией производительности. Имею опыт как разработки продуктов с нуля, так и масштабного рефакторинга legacy-систем.";
-
-export const additionalInfo = [
-  {
-    label: "Образование",
-    value: "МИЭТ, магистр",
-  },
-  {
-    label: "Английский",
-    value: "B1",
-  },
-  {
-    label: "Формат",
-    value: "Remote / Hybrid / Product teams",
-  },
-] as const;
+  "Frontend-инженер с опытом коммерческой разработки интерфейсов для SaaS и внутренних кабинетов. В работе делаю упор на предсказуемое поведение UI, читаемую архитектуру компонентов и надёжный production-процесс: типизация, QA-проверки, метрики качества, SEO и accessibility. Для меня важен не только внешний вид, но и то, как интерфейс живёт после релиза.";
 
 export const experience = [
   {
-    role: "Инженер-разработчик / Senior Frontend Developer",
-    company: "SberTech",
-    period: "Январь 2020 — настоящее время",
+    role: "Frontend Developer",
+    company: "Product / Commercial Projects",
+    period: "2021 — настоящее время",
     bullets: [
-      "Разрабатываю и развиваю frontend-модули enterprise-продуктов на React, Next.js и TypeScript.",
-      "Работал над платформой GitVerse: SSR, сложная бизнес-логика, Effector, Tailwind CSS и взаимодействие с backend-командой.",
-      "Участвовал в развитии образовательной платформы 21-school: React, GraphQL, Redux и styled-components.",
-      "Проектировал структуру клиентских приложений, переиспользуемые компоненты и масштабируемую frontend-архитектуру.",
-      "Проводил code review, участвовал в архитектурных обсуждениях и менторил менее опытных разработчиков.",
-      "Работал в кросс-функциональной команде 250+ человек.",
+      "Проектировал и реализовывал адаптивные интерфейсы для dashboard-систем и кабинетов.",
+      "Снижал time-to-release через переиспользуемые UI-компоненты и единые паттерны состояния.",
+      "Вёл задачи с фокусом на accessibility, SEO и производительность до production-ввода.",
+      "Участвовал в пост-релизной стабилизации: bugfix, UX-polish, доработка edge-cases.",
     ],
   },
   {
-    role: "Инженер-разработчик клиентских приложений",
-    company: "Rambler&Co",
-    period: "Сентябрь 2018 — декабрь 2019",
+    role: "Web Developer",
+    company: "Freelance / Client Projects",
+    period: "2019 — 2021",
     bullets: [
-      "Разрабатывал новый функционал и участвовал в определении архитектуры клиентских приложений.",
-      "Участвовал в переводе проектов с Backbone на React и снижении технического долга.",
-      "Проводил масштабный рефакторинг legacy-кода, аудит зависимостей и удаление устаревших библиотек.",
-      "Проектировал новую архитектуру запросов к серверу и типизировал ответы и запросы API.",
-      "Коммуницировал с backend-разработчиками, оценивал задачи и предлагал альтернативные технические решения.",
-    ],
-  },
-  {
-    role: "Младший инженер по тестированию",
-    company: "Rambler&Co",
-    period: "Август 2017 — сентябрь 2018",
-    bullets: [
-      "Проводил функциональное тестирование веб-продуктов.",
-      "Готовил тестовые сценарии, собирал требования и документировал поведение систем.",
-      "Вёл дефекты и взаимодействовал с командой разработки.",
-      "Полученный QA-бэкграунд помогает внимательнее относиться к качеству интерфейсов, edge cases и пользовательским сценариям.",
+      "Делал промо- и корпоративные сайты под реальные бизнес-задачи.",
+      "Интегрировал формы, адаптив, базовую аналитику и SEO-структуру страниц.",
+      "Сопровождал проекты после релиза и закрывал критичные проблемы в проде.",
     ],
   },
 ] as const;
 
 export const skillGroups = [
   {
-    title: "Core Frontend",
-    items: ["HTML5", "CSS3", "Sass/SCSS", "JavaScript", "TypeScript", "React"],
-  },
-  {
-    title: "Frameworks & State",
-    items: ["Next.js", "SSR", "Redux", "Effector", "GraphQL", "styled-components", "Tailwind CSS"],
-  },
-  {
-    title: "Architecture & Quality",
-    items: [
-      "Frontend Architecture",
-      "Modular Architecture",
-      "Code Review",
-      "Refactoring",
-      "Legacy Migration",
-      "API Contracts",
-      "Webpack",
-      "Git",
-    ],
+    title: "Frontend",
+    items: ["React", "Next.js", "TypeScript", "JavaScript", "HTML5", "CSS3", "SCSS", "Tailwind CSS"],
   },
   {
     title: "UI Engineering",
-    items: [
-      "Responsive UI",
-      "Accessibility",
-      "Semantic HTML",
-      "Design Systems",
-      "Reusable Components",
-      "Performance Optimization",
-    ],
+    items: ["Responsive UI", "Accessibility", "Semantic HTML", "Design Systems", "Animation", "Micro-interactions"],
   },
   {
-    title: "Product & Team",
-    items: [
-      "Enterprise Products",
-      "Cross-functional Teams",
-      "Mentoring",
-      "Technical Discussions",
-      "QA Background",
-      "Documentation",
-    ],
+    title: "Architecture & Quality",
+    items: ["Component Architecture", "Feature-based Structure", "ESLint", "Prettier", "Testing", "CI"],
+  },
+  {
+    title: "Product & SEO",
+    items: ["Technical SEO", "Metadata", "Sitemap", "Performance", "Lighthouse", "UX"],
   },
 ] as const;
 
 export const projects = [
   {
-    title: "FlowPilot — SaaS Analytics Dashboard",
+    title: "SEO Audit Platform",
     description:
-      "Production-ready showcase project: адаптивный SaaS dashboard для продуктовой аналитики с landing page, pricing page, charts, tables и mock data.",
-    techStack: ["Next.js", "TypeScript", "Tailwind CSS", "Recharts", "Responsive UI"],
-    highlights: [
-      "Landing, pricing и dashboard routes на Next.js App Router",
-      "Dashboard UI с метриками, графиками, таблицей задач и activity feed",
-      "Mock-data driven architecture без backend-зависимости",
-      "Responsive layout без horizontal overflow на mobile/tablet",
-      "SEO metadata, sitemap, robots и accessibility basics",
+      "Платформа технического SEO-аудита с очередями задач, защищённой выдачей отчётов и фокусом на стабильную обработку в production.",
+    techStack: ["Next.js", "TypeScript", "PostgreSQL", "Prisma"],
+    implemented: [
+      "Фоновая обработка SEO-аудитов через queue/worker модель",
+      "Token-protected доступ к статусу и скачиванию отчётов",
+      "Генерация PDF-отчётов с actionable структурой",
     ],
-    image: "/projects/flowpilot.svg",
+    decisions: [
+      "Разделение публичного API и внутренних worker-процессов",
+      "Retry-механика и fail-safe обработка нестабильных задач",
+      "RU-first metadata/canonical структура для индексации",
+    ],
+    production: [
+      "Контроль payload и валидации входных данных",
+      "Защита report endpoints и снижение риска утечек",
+      "Проверки lint/type/build перед выкладкой",
+    ],
+    impact: "Сделал аудит предсказуемым: отчёты генерируются и доставляются стабильнее, а публичный слой безопаснее.",
+    image: "/projects/seo-audit.svg",
     actions: {
-      demo: "http://64.188.63.171:3210",
+      demo: "https://github.com/pskudarnov",
+      github: "https://github.com/pskudarnov",
+      caseStudy: "#contact",
+    },
+  },
+  {
+    title: "FlowPilot Dashboard",
+    description:
+      "Dashboard showcase с реальными инженерными ограничениями: SSR, графики, адаптивная навигация и release-quality пайплайн.",
+    techStack: ["Next.js", "TypeScript", "Tailwind", "Recharts"],
+    implemented: [
+      "Dashboard-страницы с аналитическими блоками и chart-сценариями",
+      "Мобильная навигация с доступным keyboard-поведением",
+      "SEO assets: robots/sitemap/OG + структурированные metadata",
+    ],
+    decisions: [
+      "SSR-safe рендеринг графиков без hydration-конфликтов",
+      "Упор на mobile-first spacing и предсказуемые breakpoints",
+      "Явные quality gates: lint + typecheck + build",
+    ],
+    production: [
+      "Снижение layout shift в карточках и графиках",
+      "Проверка external links и runtime-console чистоты",
+      "Стабильный деплой-профиль для VPS/PM2",
+    ],
+    impact: "Собран как живой production-шаблон dashboard-проекта, который можно показывать клиентам и команде.",
+    image: "/projects/affiliate-dashboard.svg",
+    actions: {
+      demo: "https://github.com/pskudarnov/flowpilot-dashboard",
       github: "https://github.com/pskudarnov/flowpilot-dashboard",
-      caseStudy: "",
+      caseStudy: "#contact",
     },
   },
   {
-    title: "NordShop — Premium E-commerce Store",
+    title: "Frontend Portfolio",
     description:
-      "Production-ready showcase project: премиальный e-commerce интерфейс с каталогом товаров, фильтрами, сортировкой, product detail pages и корзиной.",
-    techStack: ["Next.js", "TypeScript", "Tailwind CSS", "Zustand", "E-commerce UX"],
-    highlights: [
-      "Каталог товаров с поиском, фильтрами по категориям и сортировкой",
-      "Dynamic product detail pages на Next.js App Router",
-      "Cart state management: quantity, remove, subtotal, shipping и total",
-      "Mobile-first layout с адаптивным header и product grid",
-      "SEO metadata, sitemap, robots и accessibility basics",
+      "Инженерное портфолио без шаблонного маркетинга: акцент на структуру, внятную подачу опыта и production-ready UI/UX.",
+    techStack: ["Next.js", "TypeScript", "Framer Motion", "SEO"],
+    implemented: [
+      "Структурированные секции для HR/клиентского просмотра за 30 секунд",
+      "Subtle motion с поддержкой prefers-reduced-motion",
+      "Чистая metadata-конфигурация и корректные служебные страницы",
     ],
-    image: "/projects/nordshop.svg",
-    actions: {
-      demo: "http://64.188.63.171:3220",
-      github: "https://github.com/pskudarnov/nordshop-store",
-      caseStudy: "",
-    },
-  },
-  {
-    title: "StayFinder — Booking Search Experience",
-    description:
-      "Production-ready showcase project: booking/search интерфейс с формой поиска, фильтрами, сортировкой, карточками объектов и detail pages.",
-    techStack: ["Next.js", "TypeScript", "Tailwind CSS", "React Hook Form", "Zod"],
-    highlights: [
-      "Search page с React Hook Form и Zod validation",
-      "Фильтры по destination, type, amenities, price range и rating",
-      "Сортировка по recommendation, цене и рейтингу",
-      "Dynamic stay detail pages на Next.js App Router",
-      "Responsive booking UX с mobile filters panel и SEO metadata",
+    decisions: [
+      "Спокойная типографика и минималистичный контрастный UI",
+      "Без overengineering: простые предсказуемые компоненты",
+      "Семантика, focus-states и доступная якорная навигация",
     ],
-    image: "/projects/stayfinder.svg",
-    actions: {
-      demo: "http://64.188.63.171:3230",
-      github: "https://github.com/pskudarnov/stayfinder-booking",
-      caseStudy: "",
-    },
-  },
-  {
-    title: "DevDocs — Developer Documentation Portal",
-    description:
-      "Production-ready showcase project: documentation portal с поиском, фильтрами, sidebar navigation, article pages, code blocks и changelog.",
-    techStack: ["Next.js", "TypeScript", "Tailwind CSS", "Docs UI", "SEO"],
-    highlights: [
-      "Docs page с поиском, фильтрами по category/difficulty и сортировкой",
-      "Dynamic article pages на Next.js App Router",
-      "CodeBlock components, On This Page и previous/next navigation",
-      "Changelog page для versioned product updates",
-      "SEO metadata, sitemap, robots и responsive documentation layout",
+    production: [
+      "No placeholder links и валидация внешних кнопок",
+      "404/loading/error сценарии для runtime-устойчивости",
+      "Релизные проверки lint/type/build + ручной runtime QA",
     ],
-    image: "/projects/devdocs.svg",
+    impact: "Портфолио выглядит как продуктовая инженерная работа, а не как tutorial landing.",
+    image: "/projects/ai-toolkit.svg",
     actions: {
-      demo: "http://64.188.63.171:3240",
-      github: "https://github.com/pskudarnov/devdocs-portal",
-      caseStudy: "",
+      demo: "https://github.com/pskudarnov/frontend-portfolio",
+      github: "https://github.com/pskudarnov/frontend-portfolio",
+      caseStudy: "#about",
     },
   },
 ] as const;
 
 export const contacts = [
   { label: "GitHub", href: "https://github.com/pskudarnov" },
-  { label: "Telegram", href: "https://t.me/pskudarnov" },
-  { label: "Email", href: "mailto:pawel.skudarnov@yandex.ru" },
+  { label: "Email", href: "mailto:pskudarnov@gmail.com" },
   { label: "Резюме PDF", href: "/resume.pdf" },
 ] as const;

@@ -26,8 +26,16 @@ export const metadata: Metadata = {
     template: "%s | Павел Скударнов",
   },
   description: siteDescription,
+  applicationName: "Pavel Skudarnov Portfolio",
+  keywords: ["Frontend Developer", "React", "Next.js", "TypeScript", "Portfolio", "SEO"],
+  authors: [{ name: "Павел Скударнов", url: siteUrl }],
   alternates: {
     canonical: "/",
+  },
+  manifest: "/site.webmanifest",
+  icons: {
+    icon: [{ url: "/icon.svg", type: "image/svg+xml" }],
+    apple: [{ url: "/apple-icon.png", sizes: "180x180", type: "image/png" }],
   },
   openGraph: {
     title: siteTitle,
@@ -54,13 +62,6 @@ export const metadata: Metadata = {
   robots: {
     index: true,
     follow: true,
-  },
-  icons: {
-    icon: [
-      { url: "/favicon.ico" },
-      { url: "/icon.svg", type: "image/svg+xml" },
-    ],
-    apple: [{ url: "/apple-icon.png", sizes: "180x180", type: "image/png" }],
   },
 };
 
