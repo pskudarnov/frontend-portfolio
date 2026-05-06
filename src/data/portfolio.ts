@@ -8,6 +8,13 @@ export const navItems = [
 
 export const techStack = ["React", "Next.js", "TypeScript", "Accessibility", "Technical SEO"] as const;
 
+export const metrics = [
+  "4+ years experience",
+  "React / Next.js",
+  "SEO-focused frontend",
+  "Accessibility & Performance",
+] as const;
+
 export const hero = {
   role: "Frontend Developer / Frontend Engineer",
   headline: "Павел Скударнов",
@@ -78,6 +85,7 @@ export const projects = [
     title: "SEO Audit Platform",
     description:
       "Собственный SaaS-проект для автоматического SEO-аудита сайтов, генерации отчётов и проверки технических SEO-факторов.",
+    techStack: ["Next.js", "TypeScript", "PostgreSQL", "Prisma"],
     highlights: [
       "Next.js App Router + TypeScript",
       "protected report pages",
@@ -86,13 +94,17 @@ export const projects = [
       "worker/retry architecture",
     ],
     image: "/projects/seo-audit.svg",
-    demo: "https://demo-link-placeholder.example",
-    github: "https://github-link-placeholder.example",
+    actions: {
+      demo: "https://demo-link-placeholder.example",
+      github: "https://github-link-placeholder.example",
+      caseStudy: "#contact",
+    },
   },
   {
     title: "Affiliate Dashboard UI",
     description:
       "Коммерческий UI/case для партнёрского кабинета с навигацией, dropdown-сценариями, адаптивной вёрсткой и accessibility-паттернами.",
+    techStack: ["React", "TypeScript", "SCSS", "ARIA"],
     highlights: [
       "React + TypeScript",
       "SCSS architecture",
@@ -101,13 +113,17 @@ export const projects = [
       "responsive dashboard layout",
     ],
     image: "/projects/affiliate-dashboard.svg",
-    demo: "https://demo-link-placeholder.example",
-    github: "https://github-link-placeholder.example",
+    actions: {
+      demo: "https://demo-link-placeholder.example",
+      github: "https://github-link-placeholder.example",
+      caseStudy: "#contact",
+    },
   },
   {
     title: "AI-assisted Engineering Workflow",
     description:
       "Набор процессов и документации для работы с Codex/Qwen/Spec Kit: постановка задач, QA-проверки, архитектурные планы и CI-first workflow.",
+    techStack: ["Spec Kit", "Codex", "Qwen", "CI"],
     highlights: [
       "agent task prompts",
       "QA checklists",
@@ -116,8 +132,11 @@ export const projects = [
       "CI validation flow",
     ],
     image: "/projects/ai-toolkit.svg",
-    demo: "https://demo-link-placeholder.example",
-    github: "https://github-link-placeholder.example",
+    actions: {
+      demo: "https://demo-link-placeholder.example",
+      github: "https://github-link-placeholder.example",
+      caseStudy: "#contact",
+    },
   },
 ] as const;
 

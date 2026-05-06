@@ -1,7 +1,9 @@
 <svg width="1200" height="630" viewBox="0 0 1200 630" fill="none" xmlns="http://www.w3.org/2000/svg">
-<rect width="1200" height="630" fill="#07080D"/>
-<rect x="60" y="60" width="1080" height="510" rx="20" fill="#0D1018" stroke="#242B3F"/>
-<text x="120" y="250" fill="#F4F4F5" font-family="Arial, sans-serif" font-size="72" font-weight="700">Павел Скударнов</text>
-<text x="120" y="320" fill="#A1A1AA" font-family="Arial, sans-serif" font-size="42">Frontend Engineer</text>
-<text x="120" y="390" fill="#8B5CF6" font-family="Arial, sans-serif" font-size="30">Next.js · React · TypeScript · SEO</text>
+  <rect width="1200" height="630" fill="#07080d"/>
+  <rect x="56" y="56" width="1088" height="518" rx="24" fill="#0d1018" stroke="#252c40"/>
+  <text x="116" y="228" fill="#f4f4f5" font-family="Arial, sans-serif" font-size="68" font-weight="700">Павел Скударнов</text>
+  <text x="116" y="300" fill="#8b5cf6" font-family="Arial, sans-serif" font-size="38" font-weight="600">Frontend Developer</text>
+  <text x="116" y="362" fill="#a1a1aa" font-family="Arial, sans-serif" font-size="28">React · Next.js · TypeScript · SEO · Accessibility</text>
+  <rect x="116" y="420" width="968" height="96" rx="14" fill="#0a0d16" stroke="#2b3146"/>
+  <text x="146" y="478" fill="#d4d4d8" font-family="Courier New, monospace" font-size="24">clean architecture · performance-focused UI · production-ready frontend</text>
 </svg>
