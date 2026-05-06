@@ -17,6 +17,7 @@ import { AnimatedSection } from "@/components/animated-section";
 import { Container } from "@/components/container";
 import {
   aboutText,
+  additionalInfo,
   contacts,
   experience,
   hero,
@@ -113,7 +114,7 @@ export default function HomePage() {
                   href="#projects"
                   className="rounded-md bg-zinc-100 px-5 py-3 text-sm font-medium text-zinc-900 transition-all duration-200 hover:-translate-y-0.5 hover:bg-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-500"
                 >
-                  Смотреть проекты
+                  Смотреть кейсы
                 </a>
                 <a
                   href="#contact"
@@ -164,8 +165,8 @@ export default function HomePage() {
                       <span className="text-violet-300">const</span> profile = {"{"}
                     </p>
                     <p className="pl-3">stack: [&quot;react&quot;, &quot;next&quot;, &quot;typescript&quot;],</p>
-                    <p className="pl-3">focus: [&quot;seo&quot;, &quot;a11y&quot;, &quot;performance&quot;],</p>
-                    <p className="pl-3">status: &quot;open to frontend projects&quot;</p>
+                    <p className="pl-3">focus: [&quot;architecture&quot;, &quot;ssr&quot;, &quot;performance&quot;],</p>
+                    <p className="pl-3">status: &quot;open to senior frontend roles&quot;</p>
                     <p>{"}"};</p>
                   </div>
                 </div>
@@ -193,6 +194,14 @@ export default function HomePage() {
           <Container>
             <h2 className="text-3xl font-semibold text-zinc-100">Обо мне</h2>
             <p className="mt-6 max-w-4xl text-lg leading-relaxed text-zinc-400">{aboutText}</p>
+            <div className="mt-8 grid gap-3 sm:grid-cols-3">
+              {additionalInfo.map((item) => (
+                <article key={item.label} className="rounded-xl border border-zinc-800 bg-zinc-950/70 px-4 py-4">
+                  <p className="text-[11px] uppercase tracking-[0.2em] text-zinc-500">{item.label}</p>
+                  <p className="mt-2 text-sm text-zinc-200">{item.value}</p>
+                </article>
+              ))}
+            </div>
           </Container>
         </AnimatedSection>
 
@@ -312,7 +321,7 @@ export default function HomePage() {
                           href={project.actions.caseStudy}
                           className="inline-flex items-center justify-center gap-1 rounded-md bg-violet-500/90 px-3 py-2 text-xs font-medium text-white transition-all duration-200 hover:bg-violet-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-500"
                         >
-                          Case Study <ArrowUpRight className="size-3.5" />
+                          Обсудить кейс <ArrowUpRight className="size-3.5" />
                         </Link>
                       ) : null}
                     </div>

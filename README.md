@@ -68,8 +68,10 @@ pm2 status
 
 ## Content sources
 
-- Main content: `src/data/portfolio.ts`
+- Main content (hero/about/experience/projects/contacts/additionalInfo): `src/data/portfolio.ts`
+- Contacts email is set in `src/data/portfolio.ts` (`contacts` array)
 - Page composition/UI: `src/app/page.tsx`
+- Project previews (SVG): `public/projects/*.svg`
 - SEO metadata: `src/app/layout.tsx`
 - SEO endpoints: `src/app/robots.ts`, `src/app/sitemap.ts`
 

@@ -27,6 +27,21 @@ export const hero = {
 export const aboutText =
   "Senior Frontend Developer с 8+ годами опыта в разработке высоконагруженных веб-приложений. Специализируюсь на React, Next.js, TypeScript, SSR и построении масштабируемой frontend-архитектуры. Работал над enterprise-продуктами в SberTech и Rambler&Co, участвовал в разработке GitVerse и 21-school, проводил code review, менторил разработчиков и занимался оптимизацией производительности. Имею опыт как разработки продуктов с нуля, так и масштабного рефакторинга legacy-систем.";
 
+export const additionalInfo = [
+  {
+    label: "Образование",
+    value: "МИЭТ, магистр",
+  },
+  {
+    label: "Английский",
+    value: "B1",
+  },
+  {
+    label: "Формат",
+    value: "Remote / Hybrid / Product teams",
+  },
+] as const;
+
 export const experience = [
   {
     role: "Инженер-разработчик / Senior Frontend Developer",
@@ -125,7 +140,7 @@ export const projects = [
       "Сложная бизнес-логика и управление состоянием через Effector",
       "Code review, API discussions и менторинг разработчиков",
     ],
-    image: "/projects/affiliate-dashboard.svg",
+    image: "/projects/gitverse.svg",
     actions: {
       demo: "https://gitverse.ru",
       github: "",
@@ -144,7 +159,7 @@ export const projects = [
       "Создание переиспользуемой компонентной базы",
       "Оптимизация производительности и улучшение UX",
     ],
-    image: "/projects/ai-toolkit.svg",
+    image: "/projects/school-21.svg",
     actions: {
       demo: "https://21-school.ru",
       github: "",
@@ -163,7 +178,7 @@ export const projects = [
       "Новая архитектура запросов к серверу",
       "Полная типизация ответов и запросов API",
     ],
-    image: "/projects/affiliate-dashboard.svg",
+    image: "/projects/legacy-migration.svg",
     actions: {
       demo: "",
       github: "",
@@ -194,7 +209,6 @@ export const projects = [
 export const contacts = [
   { label: "GitHub", href: "https://github.com/pskudarnov" },
   { label: "Telegram", href: "https://t.me/pskudarnov" },
-  // TODO: Replace with real email address.
-  { label: "Email", href: "mailto:pavel@example.com" },
+  { label: "Email", href: "mailto:pawel.skudarnov@yandex.ru" },
   { label: "Resume PDF", href: "/resume.pdf" },
 ] as const;
