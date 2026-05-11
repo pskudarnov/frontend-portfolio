@@ -86,22 +86,6 @@ export const skillGroups = [
 
 export const projects = [
   {
-    title: "FlowPilot",
-    description:
-      "Dashboard-интерфейс для аналитики и управления рабочими процессами. Акцент сделан на понятную структуру данных, адаптивные виджеты, графики и аккуратный production UI.",
-    techStack: ["Next.js", "TypeScript", "Tailwind", "Recharts"],
-    implemented: [
-      "Dashboard-страницы с аналитическими виджетами и графиками",
-      "Адаптивная навигация и responsive layout",
-      "Состояния загрузки, пустые состояния и аккуратная UI-подача",
-    ],
-    image: "/projects/affiliate-dashboard.svg",
-    actions: {
-      demo: "https://flowpilot.pavel-skudarnov.ru/",
-      github: "https://github.com/pskudarnov/flowpilot-dashboard",
-    },
-  },
-  {
     title: "Frontend Portfolio",
     description:
       "Этот сайт — персональное портфолио frontend-инженера с фокусом на живую подачу опыта, аккуратный UI, адаптивность, SEO и понятную структуру для рекрутеров и клиентов.",
@@ -115,6 +99,22 @@ export const projects = [
     actions: {
       demo: "https://pavel-skudarnov.ru/",
       github: "https://github.com/pskudarnov/frontend-portfolio",
+    },
+  },
+  {
+    title: "FlowPilot",
+    description:
+      "Dashboard-интерфейс для аналитики и управления рабочими процессами. Акцент сделан на понятную структуру данных, адаптивные виджеты, графики и аккуратный production UI.",
+    techStack: ["Next.js", "TypeScript", "Tailwind", "Recharts"],
+    implemented: [
+      "Dashboard-страницы с аналитическими виджетами и графиками",
+      "Адаптивная навигация и responsive layout",
+      "Состояния загрузки, пустые состояния и аккуратная UI-подача",
+    ],
+    image: "/projects/affiliate-dashboard.svg",
+    actions: {
+      demo: "https://flowpilot.pavel-skudarnov.ru/",
+      github: "https://github.com/pskudarnov/flowpilot-dashboard",
     },
   },
   {
