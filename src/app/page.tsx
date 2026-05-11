@@ -1,7 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
 import {
-  ArrowUpRight,
   Blocks,
   Briefcase,
   Code2,
@@ -255,121 +254,69 @@ export default function HomePage() {
 
         <AnimatedSection id="projects" className="scroll-mt-24 py-20">
           <Container>
-            <h2 className="text-3xl font-semibold text-zinc-100">Избранные проекты</h2>
+            <h2 className="text-3xl font-semibold text-zinc-100">Проекты</h2>
             <p className="mt-4 max-w-3xl text-zinc-400">
-              Каждый проект собран с фокусом на инженерные решения: надёжность, поддерживаемость, релизная предсказуемость и UX в реальных условиях.
+              Несколько проектов, где я работал над frontend, визуальной подачей, адаптивностью и production-ready интерфейсами.
             </p>
 
-            <div className="mt-10 grid gap-6 xl:grid-cols-3">
-              {projects.map((project) => {
-                const isCaseStudyExternal = project.actions.caseStudy?.startsWith("http") ?? false;
+            <div className="mt-10 grid gap-6 md:grid-cols-2 xl:grid-cols-6">
+              {projects.map((project) => (
+                <article
+                  key={project.title}
+                  className="group col-span-full flex h-full flex-col overflow-hidden rounded-2xl border border-zinc-800 bg-zinc-950/85 transition-all duration-300 hover:-translate-y-1 hover:border-violet-400/70 hover:shadow-[0_16px_40px_-24px_rgba(139,92,246,0.55)] md:col-span-1 xl:col-span-2 xl:nth-[4]:col-start-2"
+                >
+                  <Image
+                    src={project.image}
+                    alt={project.title}
+                    width={640}
+                    height={360}
+                    className="h-44 w-full object-cover transition-transform duration-300 group-hover:scale-[1.02]"
+                  />
+                  <div className="flex h-full flex-col p-5">
+                    <h3 className="text-xl font-medium text-zinc-100">{project.title}</h3>
+                    <p className="mt-3 text-sm leading-relaxed text-zinc-400">{project.description}</p>
 
-                return (
-                  <article
-                    key={project.title}
-                    className="group flex h-full flex-col overflow-hidden rounded-2xl border border-zinc-800 bg-zinc-950/85 transition-all duration-300 hover:-translate-y-1 hover:border-violet-400/70 hover:shadow-[0_16px_40px_-24px_rgba(139,92,246,0.55)]"
-                  >
-                    <Image
-                      src={project.image}
-                      alt={project.title}
-                      width={640}
-                      height={360}
-                      className="h-44 w-full object-cover transition-transform duration-300 group-hover:scale-[1.02]"
-                    />
-                    <div className="flex h-full flex-col p-5">
-                      <h3 className="text-xl font-medium text-zinc-100">{project.title}</h3>
-                      <p className="mt-3 text-sm leading-relaxed text-zinc-400">{project.description}</p>
+                    <ul className="mt-4 flex flex-wrap gap-2 text-xs text-zinc-300">
+                      {project.techStack.map((tech) => (
+                        <li key={tech} className="rounded-full border border-zinc-700 bg-zinc-900/80 px-2.5 py-1">
+                          {tech}
+                        </li>
+                      ))}
+                    </ul>
 
-                      <ul className="mt-4 flex flex-wrap gap-2 text-xs text-zinc-300">
-                        {project.techStack.map((tech) => (
-                          <li key={tech} className="rounded-full border border-zinc-700 bg-zinc-900/80 px-2.5 py-1">
-                            {tech}
+                    <section className="mt-5 text-sm text-zinc-300">
+                      <p className="text-[11px] uppercase tracking-[0.2em] text-zinc-500">Реализовано</p>
+                      <ul className="mt-2 space-y-1.5">
+                        {project.implemented.map((item) => (
+                          <li key={item} className="flex gap-2">
+                            <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-violet-400" aria-hidden />
+                            <span>{item}</span>
                           </li>
                         ))}
                       </ul>
+                    </section>
 
-                      <div className="mt-5 space-y-4 text-sm text-zinc-300">
-                        {project.implemented && project.implemented.length > 0 && (
-                          <section>
-                            <p className="text-[11px] uppercase tracking-[0.2em] text-zinc-500">Реализовано</p>
-                            <ul className="mt-2 space-y-1.5">
-                              {project.implemented.map((item) => (
-                                <li key={item} className="flex gap-2">
-                                  <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-violet-400" aria-hidden />
-                                  <span>{item}</span>
-                                </li>
-                              ))}
-                            </ul>
-                          </section>
-                        )}
-
-                        {project.decisions && project.decisions.length > 0 && (
-                          <section>
-                            <p className="text-[11px] uppercase tracking-[0.2em] text-zinc-500">Инженерные решения</p>
-                            <ul className="mt-2 space-y-1.5">
-                              {project.decisions.map((item) => (
-                                <li key={item} className="flex gap-2">
-                                  <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-zinc-500" aria-hidden />
-                                  <span>{item}</span>
-                                </li>
-                              ))}
-                            </ul>
-                          </section>
-                        )}
-
-                        {project.production && project.production.length > 0 && (
-                          <section>
-                            <p className="text-[11px] uppercase tracking-[0.2em] text-zinc-500">Production-стандарты</p>
-                            <ul className="mt-2 space-y-1.5">
-                              {project.production.map((item) => (
-                                <li key={item} className="flex gap-2">
-                                  <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-emerald-400" aria-hidden />
-                                  <span>{item}</span>
-                                </li>
-                              ))}
-                            </ul>
-                          </section>
-                        )}
-                      </div>
-
-                      {project.impact && (
-                        <p className="mt-5 rounded-lg border border-zinc-800 bg-black/25 px-3 py-2 text-sm text-zinc-300">
-                          Результат: {project.impact}
-                        </p>
-                      )}
-
-                      <div className="mt-6 grid grid-cols-1 gap-2 sm:grid-cols-2 lg:grid-cols-3">
-                        <Link
-                          href={project.actions.demo}
-                          target="_blank"
-                          rel={externalRel}
-                          className="inline-flex items-center justify-center gap-1 rounded-md border border-zinc-700 px-3 py-2 text-xs font-medium text-zinc-200 transition-all duration-200 hover:border-zinc-500 hover:bg-zinc-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-500"
-                        >
-                          Демо <ExternalLink className="size-3.5" />
-                        </Link>
-                        <Link
-                          href={project.actions.github}
-                          target="_blank"
-                          rel={externalRel}
-                          className="inline-flex items-center justify-center gap-1 rounded-md border border-zinc-700 px-3 py-2 text-xs font-medium text-zinc-200 transition-all duration-200 hover:border-zinc-500 hover:bg-zinc-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-500"
-                        >
-                          GitHub <GitBranch className="size-3.5" />
-                        </Link>
-                        {project.actions.caseStudy && (
-                          <Link
-                            href={project.actions.caseStudy}
-                            target={isCaseStudyExternal ? "_blank" : undefined}
-                            rel={isCaseStudyExternal ? externalRel : undefined}
-                            className="inline-flex items-center justify-center gap-1 rounded-md bg-violet-500/90 px-3 py-2 text-xs font-medium text-white transition-all duration-200 hover:bg-violet-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-500 sm:col-span-2 lg:col-span-1"
-                          >
-                            Кейс <ArrowUpRight className="size-3.5" />
-                          </Link>
-                        )}
-                      </div>
+                    <div className="mt-auto flex flex-wrap gap-2 pt-6">
+                      <Link
+                        href={project.actions.demo}
+                        target="_blank"
+                        rel={externalRel}
+                        className="inline-flex items-center justify-center gap-1 rounded-md border border-zinc-700 px-3 py-2 text-xs font-medium text-zinc-200 transition-all duration-200 hover:border-zinc-500 hover:bg-zinc-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-500"
+                      >
+                        Демо <ExternalLink className="size-3.5" />
+                      </Link>
+                      <Link
+                        href={project.actions.github}
+                        target="_blank"
+                        rel={externalRel}
+                        className="inline-flex items-center justify-center gap-1 rounded-md border border-zinc-700 px-3 py-2 text-xs font-medium text-zinc-200 transition-all duration-200 hover:border-zinc-500 hover:bg-zinc-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-500"
+                      >
+                        GitHub <GitBranch className="size-3.5" />
+                      </Link>
                     </div>
-                  </article>
-                );
-              })}
+                  </div>
+                </article>
+              ))}
             </div>
           </Container>
         </AnimatedSection>
