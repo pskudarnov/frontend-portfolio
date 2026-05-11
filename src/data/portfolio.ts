@@ -67,20 +67,20 @@ export const experience = [
 
 export const skillGroups = [
   {
-    title: "Frontend",
-    items: ["React", "Next.js", "TypeScript", "JavaScript", "HTML5", "CSS3", "SCSS", "Tailwind CSS"],
+    title: "Frontend Development",
+    items: ["React", "Next.js", "TypeScript", "SSR", "REST API"],
   },
   {
     title: "UI Engineering",
-    items: ["Responsive UI", "Accessibility", "Semantic HTML", "Design Systems", "Animation", "Micro-interactions"],
+    items: ["Responsive UI", "Design Systems", "Accessibility", "Animation"],
   },
   {
-    title: "Architecture & Quality",
-    items: ["Component Architecture", "Feature-based Structure", "ESLint", "Prettier", "Testing", "Code Review"],
+    title: "Product Quality",
+    items: ["Testing", "Code Review", "Refactoring", "Release Checks"],
   },
   {
-    title: "Product & SEO",
-    items: ["UI/UX", "Technical SEO", "Metadata", "Sitemap", "Performance", "Lighthouse"],
+    title: "Product & Performance",
+    items: ["UI/UX", "Performance", "Technical SEO", "Core Web Vitals"],
   },
 ] as const;
 
