@@ -259,7 +259,7 @@ export default function HomePage() {
               Несколько проектов, где я работал над frontend, визуальной подачей, адаптивностью и production-ready интерфейсами.
             </p>
 
-            <div className="mt-10 grid gap-6 md:grid-cols-2 xl:grid-cols-6">
+            <div className="mt-10 grid grid-cols-1 gap-6 md:grid-cols-2 xl:grid-cols-6">
               {projects.map((project) => (
                 <article
                   key={project.title}
@@ -296,12 +296,12 @@ export default function HomePage() {
                       </ul>
                     </section>
 
-                    <div className="mt-auto flex flex-wrap gap-2 pt-6">
+                    <div className="mt-auto grid grid-cols-2 gap-2 pt-6">
                       <Link
                         href={project.actions.demo}
                         target="_blank"
                         rel={externalRel}
-                        className="inline-flex items-center justify-center gap-1 rounded-md border border-zinc-700 px-3 py-2 text-xs font-medium text-zinc-200 transition-all duration-200 hover:border-zinc-500 hover:bg-zinc-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-500"
+                        className="inline-flex min-h-11 items-center justify-center gap-1.5 rounded-md border border-zinc-700 px-3 py-2 text-sm font-medium text-zinc-200 transition-all duration-200 hover:border-zinc-500 hover:bg-zinc-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-500"
                       >
                         Демо <ExternalLink className="size-3.5" />
                       </Link>
@@ -309,7 +309,7 @@ export default function HomePage() {
                         href={project.actions.github}
                         target="_blank"
                         rel={externalRel}
-                        className="inline-flex items-center justify-center gap-1 rounded-md border border-zinc-700 px-3 py-2 text-xs font-medium text-zinc-200 transition-all duration-200 hover:border-zinc-500 hover:bg-zinc-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-500"
+                        className="inline-flex min-h-11 items-center justify-center gap-1.5 rounded-md border border-zinc-700 px-3 py-2 text-sm font-medium text-zinc-200 transition-all duration-200 hover:border-zinc-500 hover:bg-zinc-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-500"
                       >
                         GitHub <GitBranch className="size-3.5" />
                       </Link>
