@@ -6,47 +6,50 @@ export const navItems = [
   { href: "#contact", label: "Контакты" },
 ] as const;
 
-export const techStack = ["React", "Next.js", "TypeScript", "Accessibility", "Technical SEO"] as const;
+export const techStack = ["React", "Next.js", "TypeScript", "Tailwind CSS", "UI/UX"] as const;
 
 export const metrics = [
-  { label: "Коммерческий опыт", value: "4+ года" },
+  { label: "Коммерческий опыт", value: "5+ лет" },
   { label: "Production релизы", value: "20+" },
   { label: "Основной стек", value: "React / Next.js" },
-  { label: "Фокус", value: "A11y + SEO + UX" },
+  { label: "Фокус", value: "UI + UX + Performance" },
 ] as const;
 
 export const hero = {
   role: "Frontend Engineer",
   headline: "Павел Скударнов",
   subtitle:
-    "Разрабатываю быстрые, доступные и SEO-ориентированные интерфейсы на React, Next.js и TypeScript.",
+    "Разрабатываю современные web-интерфейсы и production-ready приложения на React, Next.js и TypeScript.",
   supporting:
-    "Работаю от задачи до production: архитектура UI, стабильность, качество релиза и последующая поддержка.",
+    "Работаю с frontend-задачами от идеи и UI до стабильного релиза: архитектура компонентов, адаптив, производительность и аккуратный пользовательский опыт.",
 } as const;
 
 export const aboutText =
-  "Frontend-инженер с опытом коммерческой разработки интерфейсов для SaaS и внутренних кабинетов. В работе делаю упор на предсказуемое поведение UI, читаемую архитектуру компонентов и надёжный production-процесс: типизация, QA-проверки, метрики качества, SEO и accessibility. Для меня важен не только внешний вид, но и то, как интерфейс живёт после релиза.";
+  "Frontend Engineer с опытом разработки web-приложений на React и Next.js. Занимаюсь созданием современных интерфейсов, SSR-приложений и развитием frontend-архитектуры. Есть опыт работы как в продуктовых командах, так и на freelance-проектах: разработка с нуля, редизайн существующих сервисов, оптимизация производительности и улучшение пользовательского опыта. Помимо frontend-разработки, интересуюсь UI/UX и стараюсь делать интерфейсы не только функциональными, но и визуально аккуратными и удобными для пользователя.";
 
 export const experience = [
   {
-    role: "Frontend Developer",
-    company: "Product / Commercial Projects",
-    period: "2021 — настоящее время",
+    role: "Frontend Engineer",
+    company: "Freelance / собственные проекты",
+    period: "2024 — настоящее время",
     bullets: [
-      "Проектировал и реализовывал адаптивные интерфейсы для dashboard-систем и кабинетов.",
-      "Снижал time-to-release через переиспользуемые UI-компоненты и единые паттерны состояния.",
-      "Вёл задачи с фокусом на accessibility, SEO и производительность до production-ввода.",
-      "Участвовал в пост-релизной стабилизации: bugfix, UX-polish, доработка edge-cases.",
+      "Разрабатываю и развиваю web-проекты на React / Next.js для клиентов и собственных продуктов.",
+      "Создаю адаптивные интерфейсы, дизайн-системы и переиспользуемые UI-компоненты.",
+      "Делаю редизайн существующих сервисов, улучшаю UX и визуальную подачу продукта.",
+      "Оптимизирую производительность frontend-приложений и базовые SEO-сценарии.",
+      "Интегрирую REST API, поддерживаю мультиязычность, dark/light темы и responsive layouts.",
     ],
   },
   {
-    role: "Web Developer",
-    company: "Freelance / Client Projects",
-    period: "2019 — 2021",
+    role: "Frontend Developer",
+    company: "SberTech",
+    period: "2020 — 2024",
     bullets: [
-      "Делал промо- и корпоративные сайты под реальные бизнес-задачи.",
-      "Интегрировал формы, адаптив, базовую аналитику и SEO-структуру страниц.",
-      "Сопровождал проекты после релиза и закрывал критичные проблемы в проде.",
+      "Участвовал в разработке внутренних web-платформ и frontend-сервисов компании.",
+      "Разрабатывал интерфейсы на React и Next.js, поддерживал и развивал frontend-архитектуру.",
+      "Интегрировал frontend с backend API и работал с SSR-сценариями.",
+      "Создавал переиспользуемые UI-компоненты и улучшал пользовательский опыт.",
+      "Участвовал в code review, командной разработке и оптимизации производительности интерфейсов.",
     ],
   },
 ] as const;
@@ -62,11 +65,11 @@ export const skillGroups = [
   },
   {
     title: "Architecture & Quality",
-    items: ["Component Architecture", "Feature-based Structure", "ESLint", "Prettier", "Testing", "CI"],
+    items: ["Component Architecture", "Feature-based Structure", "ESLint", "Prettier", "Testing", "Code Review"],
   },
   {
     title: "Product & SEO",
-    items: ["Technical SEO", "Metadata", "Sitemap", "Performance", "Lighthouse", "UX"],
+    items: ["UI/UX", "Technical SEO", "Metadata", "Sitemap", "Performance", "Lighthouse"],
   },
 ] as const;
 
