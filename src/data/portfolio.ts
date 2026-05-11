@@ -86,87 +86,83 @@ export const skillGroups = [
 
 export const projects = [
   {
-    title: "SEO Audit Platform",
+    title: "FlowPilot",
     description:
-      "Платформа технического SEO-аудита с очередями задач, защищённой выдачей отчётов и фокусом на стабильную обработку в production.",
-    techStack: ["Next.js", "TypeScript", "PostgreSQL", "Prisma"],
-    implemented: [
-      "Фоновая обработка SEO-аудитов через queue/worker модель",
-      "Token-protected доступ к статусу и скачиванию отчётов",
-      "Генерация PDF-отчётов с actionable структурой",
-    ],
-    decisions: [
-      "Разделение публичного API и внутренних worker-процессов",
-      "Retry-механика и fail-safe обработка нестабильных задач",
-      "RU-first metadata/canonical структура для индексации",
-    ],
-    production: [
-      "Контроль payload и валидации входных данных",
-      "Защита report endpoints и снижение риска утечек",
-      "Проверки lint/type/build перед выкладкой",
-    ],
-    impact: "Сделал аудит предсказуемым: отчёты генерируются и доставляются стабильнее, а публичный слой безопаснее.",
-    image: "/projects/seo-audit.svg",
-    actions: {
-      demo: "https://github.com/pskudarnov",
-      github: "https://github.com/pskudarnov",
-      caseStudy: "#contact",
-    },
-  },
-  {
-    title: "FlowPilot Dashboard",
-    description:
-      "Dashboard showcase с реальными инженерными ограничениями: SSR, графики, адаптивная навигация и release-quality пайплайн.",
+      "Dashboard-интерфейс для аналитики и управления рабочими процессами. Акцент сделан на понятную структуру данных, адаптивные виджеты, графики и аккуратный production UI.",
     techStack: ["Next.js", "TypeScript", "Tailwind", "Recharts"],
     implemented: [
-      "Dashboard-страницы с аналитическими блоками и chart-сценариями",
-      "Мобильная навигация с доступным keyboard-поведением",
-      "SEO assets: robots/sitemap/OG + структурированные metadata",
+      "Dashboard-страницы с аналитическими виджетами и графиками",
+      "Адаптивная навигация и responsive layout",
+      "Состояния загрузки, пустые состояния и аккуратная UI-подача",
     ],
-    decisions: [
-      "SSR-safe рендеринг графиков без hydration-конфликтов",
-      "Упор на mobile-first spacing и предсказуемые breakpoints",
-      "Явные quality gates: lint + typecheck + build",
-    ],
-    production: [
-      "Снижение layout shift в карточках и графиках",
-      "Проверка external links и runtime-console чистоты",
-      "Стабильный деплой-профиль для VPS/PM2",
-    ],
-    impact: "Собран как живой production-шаблон dashboard-проекта, который можно показывать клиентам и команде.",
     image: "/projects/affiliate-dashboard.svg",
     actions: {
-      demo: "https://github.com/pskudarnov/flowpilot-dashboard",
+      demo: "https://flowpilot.pavel-skudarnov.ru/",
       github: "https://github.com/pskudarnov/flowpilot-dashboard",
-      caseStudy: "#contact",
     },
   },
   {
     title: "Frontend Portfolio",
     description:
-      "Инженерное портфолио без шаблонного маркетинга: акцент на структуру, внятную подачу опыта и production-ready UI/UX.",
+      "Этот сайт — персональное портфолио frontend-инженера с фокусом на живую подачу опыта, аккуратный UI, адаптивность, SEO и понятную структуру для рекрутеров и клиентов.",
     techStack: ["Next.js", "TypeScript", "Framer Motion", "SEO"],
     implemented: [
-      "Структурированные секции для HR/клиентского просмотра за 30 секунд",
-      "Subtle motion с поддержкой prefers-reduced-motion",
-      "Чистая metadata-конфигурация и корректные служебные страницы",
+      "Структура страницы для быстрого просмотра опыта и проектов",
+      "Адаптивный интерфейс, subtle motion и доступная навигация",
+      "SEO metadata, sitemap, robots и production-ready базовая конфигурация",
     ],
-    decisions: [
-      "Спокойная типографика и минималистичный контрастный UI",
-      "Без overengineering: простые предсказуемые компоненты",
-      "Семантика, focus-states и доступная якорная навигация",
-    ],
-    production: [
-      "No placeholder links и валидация внешних кнопок",
-      "404/loading/error сценарии для runtime-устойчивости",
-      "Релизные проверки lint/type/build + ручной runtime QA",
-    ],
-    impact: "Портфолио выглядит как продуктовая инженерная работа, а не как tutorial landing.",
     image: "/projects/ai-toolkit.svg",
     actions: {
-      demo: "https://github.com/pskudarnov/frontend-portfolio",
+      demo: "https://pavel-skudarnov.ru/",
       github: "https://github.com/pskudarnov/frontend-portfolio",
-      caseStudy: "#about",
+    },
+  },
+  {
+    title: "NordShop",
+    description:
+      "E-commerce showcase для бренда товаров рабочего пространства. Проект сфокусирован на премиальной витрине, карточках товаров, корзине, мультиязычности и аккуратном shopping experience.",
+    techStack: ["Next.js", "TypeScript", "Tailwind", "i18n"],
+    implemented: [
+      "Главная страница, каталог, карточки товаров и продуктовые страницы",
+      "Корзина, состояния интерфейса и responsive shopping flow",
+      "Поддержка мультиязычности, темы оформления и визуальный редизайн витрины",
+    ],
+    image: "/projects/seo-audit.svg",
+    actions: {
+      demo: "https://nordshop.pavel-skudarnov.ru/",
+      github: "https://github.com/pskudarnov/nordshop-store",
+    },
+  },
+  {
+    title: "StayFinder",
+    description:
+      "Booking-интерфейс для поиска и выбора жилья. Основной акцент — удобный поиск, фильтры, карточки объектов, responsive layout и визуально приятный сценарий выбора.",
+    techStack: ["Next.js", "TypeScript", "Tailwind", "UI/UX"],
+    implemented: [
+      "Поисковый сценарий, фильтры и карточки объектов",
+      "Адаптивная сетка и mobile-friendly интерфейс выбора",
+      "Редизайн в сторону более премиального booking experience",
+    ],
+    image: "/projects/affiliate-dashboard.svg",
+    actions: {
+      demo: "https://stayfinder.pavel-skudarnov.ru/",
+      github: "https://github.com/pskudarnov/stayfinder-booking",
+    },
+  },
+  {
+    title: "DevDocs",
+    description:
+      "Документационный сайт для developer tooling / SaaS-продукта. Акцент на понятную навигацию, структуру контента, читаемость, быстрый доступ к разделам и аккуратный technical UI.",
+    techStack: ["Next.js", "TypeScript", "Tailwind", "Docs UI"],
+    implemented: [
+      "Структурированная документационная главная и разделы контента",
+      "Навигация, readable typography и быстрый доступ к ключевым блокам",
+      "Визуальная подача в стиле современного developer product",
+    ],
+    image: "/projects/ai-toolkit.svg",
+    actions: {
+      demo: "https://devdocs.pavel-skudarnov.ru/",
+      github: "https://github.com/pskudarnov/devdocs-platform",
     },
   },
 ] as const;
