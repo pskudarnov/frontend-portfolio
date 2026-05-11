@@ -262,7 +262,7 @@ export default function HomePage() {
 
             <div className="mt-10 grid gap-6 xl:grid-cols-3">
               {projects.map((project) => {
-                const isCaseStudyExternal = project.actions.caseStudy.startsWith("http");
+                const isCaseStudyExternal = project.actions.caseStudy?.startsWith("http") ?? false;
 
                 return (
                   <article
@@ -289,53 +289,63 @@ export default function HomePage() {
                       </ul>
 
                       <div className="mt-5 space-y-4 text-sm text-zinc-300">
-                        <section>
-                          <p className="text-[11px] uppercase tracking-[0.2em] text-zinc-500">Реализовано</p>
-                          <ul className="mt-2 space-y-1.5">
-                            {project.implemented.map((item) => (
-                              <li key={item} className="flex gap-2">
-                                <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-violet-400" aria-hidden />
-                                <span>{item}</span>
-                              </li>
-                            ))}
-                          </ul>
-                        </section>
+                        {project.implemented && project.implemented.length > 0 && (
+                          <section>
+                            <p className="text-[11px] uppercase tracking-[0.2em] text-zinc-500">Реализовано</p>
+                            <ul className="mt-2 space-y-1.5">
+                              {project.implemented.map((item) => (
+                                <li key={item} className="flex gap-2">
+                                  <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-violet-400" aria-hidden />
+                                  <span>{item}</span>
+                                </li>
+                              ))}
+                            </ul>
+                          </section>
+                        )}
 
-                        <section>
-                          <p className="text-[11px] uppercase tracking-[0.2em] text-zinc-500">Engineering decisions</p>
-                          <ul className="mt-2 space-y-1.5">
-                            {project.decisions.map((item) => (
-                              <li key={item} className="flex gap-2">
-                                <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-zinc-500" aria-hidden />
-                                <span>{item}</span>
-                              </li>
-                            ))}
-                          </ul>
-                        </section>
+                        {project.decisions && project.decisions.length > 0 && (
+                          <section>
+                            <p className="text-[11px] uppercase tracking-[0.2em] text-zinc-500">Инженерные решения</p>
+                            <ul className="mt-2 space-y-1.5">
+                              {project.decisions.map((item) => (
+                                <li key={item} className="flex gap-2">
+                                  <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-zinc-500" aria-hidden />
+                                  <span>{item}</span>
+                                </li>
+                              ))}
+                            </ul>
+                          </section>
+                        )}
 
-                        <section>
-                          <p className="text-[11px] uppercase tracking-[0.2em] text-zinc-500">Production concerns</p>
-                          <ul className="mt-2 space-y-1.5">
-                            {project.production.map((item) => (
-                              <li key={item} className="flex gap-2">
-                                <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-emerald-400" aria-hidden />
-                                <span>{item}</span>
-                              </li>
-                            ))}
-                          </ul>
-                        </section>
+                        {project.production && project.production.length > 0 && (
+                          <section>
+                            <p className="text-[11px] uppercase tracking-[0.2em] text-zinc-500">Production-стандарты</p>
+                            <ul className="mt-2 space-y-1.5">
+                              {project.production.map((item) => (
+                                <li key={item} className="flex gap-2">
+                                  <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-emerald-400" aria-hidden />
+                                  <span>{item}</span>
+                                </li>
+                              ))}
+                            </ul>
+                          </section>
+                        )}
                       </div>
 
-                      <p className="mt-5 rounded-lg border border-zinc-800 bg-black/25 px-3 py-2 text-sm text-zinc-300">Impact: {project.impact}</p>
+                      {project.impact && (
+                        <p className="mt-5 rounded-lg border border-zinc-800 bg-black/25 px-3 py-2 text-sm text-zinc-300">
+                          Результат: {project.impact}
+                        </p>
+                      )}
 
-                      <div className="mt-6 grid grid-cols-1 gap-2 sm:grid-cols-3">
+                      <div className="mt-6 grid grid-cols-1 gap-2 sm:grid-cols-2 lg:grid-cols-3">
                         <Link
                           href={project.actions.demo}
                           target="_blank"
                           rel={externalRel}
                           className="inline-flex items-center justify-center gap-1 rounded-md border border-zinc-700 px-3 py-2 text-xs font-medium text-zinc-200 transition-all duration-200 hover:border-zinc-500 hover:bg-zinc-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-500"
                         >
-                          Live Demo <ExternalLink className="size-3.5" />
+                          Демо <ExternalLink className="size-3.5" />
                         </Link>
                         <Link
                           href={project.actions.github}
@@ -345,14 +355,16 @@ export default function HomePage() {
                         >
                           GitHub <GitBranch className="size-3.5" />
                         </Link>
-                        <Link
-                          href={project.actions.caseStudy}
-                          target={isCaseStudyExternal ? "_blank" : undefined}
-                          rel={isCaseStudyExternal ? externalRel : undefined}
-                          className="inline-flex items-center justify-center gap-1 rounded-md bg-violet-500/90 px-3 py-2 text-xs font-medium text-white transition-all duration-200 hover:bg-violet-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-500"
-                        >
-                          Case Study <ArrowUpRight className="size-3.5" />
-                        </Link>
+                        {project.actions.caseStudy && (
+                          <Link
+                            href={project.actions.caseStudy}
+                            target={isCaseStudyExternal ? "_blank" : undefined}
+                            rel={isCaseStudyExternal ? externalRel : undefined}
+                            className="inline-flex items-center justify-center gap-1 rounded-md bg-violet-500/90 px-3 py-2 text-xs font-medium text-white transition-all duration-200 hover:bg-violet-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-500 sm:col-span-2 lg:col-span-1"
+                          >
+                            Кейс <ArrowUpRight className="size-3.5" />
+                          </Link>
+                        )}
                       </div>
                     </div>
                   </article>

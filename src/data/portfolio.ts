@@ -84,7 +84,23 @@ export const skillGroups = [
   },
 ] as const;
 
-export const projects = [
+export interface Project {
+  title: string;
+  description: string;
+  techStack: readonly string[];
+  implemented: readonly string[];
+  decisions?: readonly string[];
+  production?: readonly string[];
+  impact?: string;
+  image: string;
+  actions: {
+    demo: string;
+    github: string;
+    caseStudy?: string;
+  };
+}
+
+export const projects: readonly Project[] = [
   {
     title: "Frontend Portfolio",
     description:
@@ -165,7 +181,7 @@ export const projects = [
       github: "https://github.com/pskudarnov/devdocs-platform",
     },
   },
-] as const;
+];
 
 export const contacts = [
   { label: "GitHub", href: "https://github.com/pskudarnov" },
