@@ -1,0 +1,319 @@
+import Image from "next/image";
+import Link from "next/link";
+import {
+  Briefcase,
+  Code2,
+  ExternalLink,
+  GitBranch,
+  Layers,
+  Sparkles,
+  Wrench,
+} from "lucide-react";
+import { AnimatedSection } from "@/components/animated-section";
+import { Container } from "@/components/container";
+import {
+  contacts,
+  experience,
+  projects,
+  skillGroups,
+  techStack,
+  getResumePath,
+} from "@/data/portfolio";
+import { getDictionary } from "@/get-dictionary";
+import { Locale } from "@/i18n-config";
+import { Navbar } from "@/components/navbar";
+
+const skillIcons = [Layers, Sparkles, Wrench, Code2] as const;
+const externalRel = "noreferrer";
+
+export default async function HomePage(props: {
+  params: Promise<{ lang: string }>;
+}) {
+  const { lang } = (await props.params) as { lang: Locale };
+  const dict = await getDictionary(lang);
+
+  return (
+    <>
+      <Navbar lang={lang} dict={dict} />
+
+
+      <main id="content" className="relative">
+        <div className="pointer-events-none absolute inset-x-0 top-0 h-[560px] bg-[radial-gradient(ellipse_at_top,rgba(139,92,246,0.12),transparent_65%)]" />
+
+        <AnimatedSection className="pb-16 pt-14 sm:pt-18 md:pb-20 md:pt-20">
+          <Container className="grid gap-10 lg:grid-cols-2 lg:items-center">
+            <div>
+              <p className="mb-4 text-xs uppercase tracking-[0.24em] text-zinc-500 sm:text-sm">
+                {dict.hero.role}
+              </p>
+              <h1 className="text-4xl font-semibold leading-[0.96] tracking-tight text-zinc-50 sm:text-6xl lg:text-7xl">
+                {dict.hero.headline}
+              </h1>
+              <p className="mt-6 max-w-xl text-base leading-relaxed text-zinc-300 sm:text-lg">
+                {dict.hero.subtitle}
+              </p>
+              <p className="mt-3 max-w-xl text-sm leading-relaxed text-zinc-400 sm:text-base">
+                {dict.hero.supporting}
+              </p>
+
+              <div className="mt-7 flex flex-wrap gap-3 sm:mt-8">
+                <a
+                  href="#projects"
+                  className="rounded-md bg-zinc-100 px-5 py-3 text-sm font-medium text-zinc-900 transition-all duration-200 hover:-translate-y-0.5 hover:bg-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-500"
+                >
+                  {dict.hero.viewProjects}
+                </a>
+                <a
+                  href="#contact"
+                  className="rounded-md border border-zinc-700 px-5 py-3 text-sm font-medium text-zinc-200 transition-all duration-200 hover:-translate-y-0.5 hover:border-zinc-500 hover:bg-zinc-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-500"
+                >
+                  {dict.hero.discussProject}
+                </a>
+              </div>
+
+              <ul className="mt-8 flex flex-wrap gap-2 text-sm text-zinc-400 sm:mt-10">
+                {techStack.map((tech) => (
+                  <li key={tech} className="rounded-full border border-zinc-800 bg-zinc-900/50 px-3.5 py-1.5">
+                    {tech}
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div className="relative overflow-hidden rounded-2xl border border-zinc-800 bg-gradient-to-b from-zinc-900 to-zinc-950 p-5 sm:p-7">
+              <div
+                className="absolute inset-0 rounded-2xl bg-[radial-gradient(circle_at_75%_15%,rgba(139,92,246,0.24),transparent_42%)]"
+                aria-hidden
+              />
+              <div className="relative rounded-xl border border-zinc-700/80 bg-[#0b0d14] shadow-[0_0_0_1px_rgba(139,92,246,0.12)]">
+                <div className="flex items-center justify-between border-b border-zinc-800 px-4 py-3">
+                  <div className="flex items-center gap-1.5" aria-hidden>
+                    <span className="h-2.5 w-2.5 rounded-full bg-zinc-600" />
+                    <span className="h-2.5 w-2.5 rounded-full bg-zinc-600" />
+                    <span className="h-2.5 w-2.5 rounded-full bg-zinc-600" />
+                  </div>
+                  <p className="font-mono text-[11px] text-zinc-500">profile.ts</p>
+                </div>
+                <div className="grid gap-4 p-4 sm:p-5">
+                  <div className="flex items-center gap-3">
+                    <Image
+                      src="/avatar-dev.svg"
+                      alt="Avatar"
+                      width={56}
+                      height={56}
+                      className="h-14 w-14 rounded-lg border border-zinc-700"
+                    />
+                    <div>
+                      <p className="text-sm font-medium text-zinc-100">{dict.hero.headline}</p>
+                      <p className="text-xs text-zinc-400">{dict.hero.role}</p>
+                    </div>
+                  </div>
+                  <div className="rounded-lg border border-zinc-800 bg-black/30 p-3 font-mono text-xs leading-6 text-zinc-300">
+                    <p>
+                      <span className="text-violet-300">const</span> profile = {"{"}
+                    </p>
+                    <p className="pl-3">stack: [&quot;react&quot;, &quot;next&quot;, &quot;typescript&quot;],</p>
+                    <p className="pl-3">focus: [&quot;reliability&quot;, &quot;a11y&quot;, &quot;seo&quot;],</p>
+                    <p className="pl-3">status: &quot;{lang === "ru" ? "открыт к проектам" : "open to projects"}&quot;</p>
+                    <p>{"}"};</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </Container>
+        </AnimatedSection>
+
+        <AnimatedSection className="pb-10">
+          <Container>
+            <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+              {dict.metrics.map((metric: { label: string; value: string }) => (
+                <article
+                  key={metric.label}
+                  className="rounded-xl border border-zinc-800 bg-zinc-950/70 px-4 py-4 transition-all duration-200 hover:border-zinc-700"
+                >
+                  <p className="text-xs uppercase tracking-[0.12em] text-zinc-500">{metric.label}</p>
+                  <p className="mt-2 text-lg font-semibold text-zinc-100">{metric.value}</p>
+                </article>
+              ))}
+            </div>
+          </Container>
+        </AnimatedSection>
+
+        <AnimatedSection id="about" className="scroll-mt-24 border-y border-zinc-900 py-20">
+          <Container>
+            <h2 className="text-3xl font-semibold text-zinc-100">{dict.about.title}</h2>
+            <p className="mt-6 max-w-4xl text-lg leading-relaxed text-zinc-400">{dict.about.text}</p>
+          </Container>
+        </AnimatedSection>
+
+        <AnimatedSection id="experience" className="scroll-mt-24 py-20">
+          <Container>
+            <h2 className="text-3xl font-semibold text-zinc-100">{dict.experience.title}</h2>
+            <div className="mt-10 space-y-8 border-l border-zinc-800 pl-6">
+              {experience.map((item, index) => {
+                const expDict = dict.experience.items[index];
+                return (
+                  <article key={expDict.role} className="relative">
+                    <span className="absolute -left-[31px] top-1.5 h-3 w-3 rounded-full bg-violet-500" aria-hidden />
+                    <p className="text-sm text-zinc-500">{expDict.period}</p>
+                    <h3 className="mt-1 text-xl font-medium text-zinc-100">{expDict.role}</h3>
+                    <p className="text-zinc-400">{item.company}</p>
+                    <ul className="mt-4 space-y-2 text-zinc-400">
+                      {expDict.bullets.map((bullet: string) => (
+                        <li key={bullet} className="flex gap-2">
+                          <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-violet-400" aria-hidden />
+                          <span>{bullet}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </article>
+                );
+              })}
+            </div>
+          </Container>
+        </AnimatedSection>
+
+        <AnimatedSection id="skills" className="scroll-mt-24 border-y border-zinc-900 py-20">
+          <Container>
+            <h2 className="text-3xl font-semibold text-zinc-100">{dict.skills.title}</h2>
+            <div className="mt-10 grid gap-4 sm:grid-cols-2">
+              {skillGroups.map((group, index) => {
+                const Icon = skillIcons[index];
+                const groupTitle = dict.skills.groups[group.key as keyof typeof dict.skills.groups];
+
+                return (
+                  <article
+                    key={group.key}
+                    className="rounded-xl border border-zinc-800 bg-zinc-950/80 p-6 transition-all duration-200 hover:border-violet-500/70"
+                  >
+                    <div className="flex items-center gap-3">
+                      <Icon className="size-5 text-violet-300" aria-hidden />
+                      <h3 className="text-lg font-medium text-zinc-100">{groupTitle}</h3>
+                    </div>
+                    <ul className="mt-4 flex flex-wrap gap-2 text-sm text-zinc-300">
+                      {group.items.map((item) => (
+                        <li key={item} className="rounded-full border border-zinc-700 px-3 py-1">
+                          {item}
+                        </li>
+                      ))}
+                    </ul>
+                  </article>
+                );
+              })}
+            </div>
+          </Container>
+        </AnimatedSection>
+
+        <AnimatedSection id="projects" className="scroll-mt-24 py-20">
+          <Container>
+            <h2 className="text-3xl font-semibold text-zinc-100">{dict.projects.title}</h2>
+            <p className="mt-4 max-w-3xl text-zinc-400">
+              {dict.projects.subtitle}
+            </p>
+
+            <div className="mt-10 flex flex-wrap justify-center gap-6">
+              {projects.map((project, index) => {
+                const projectDict = dict.projects.list[index];
+
+                return (
+                  <article
+                    key={project.title}
+                    className="group flex w-full flex-col overflow-hidden rounded-2xl border border-zinc-800 bg-zinc-950/85 transition-all duration-300 hover:-translate-y-1 hover:border-violet-400/70 hover:shadow-[0_16px_40px_-24px_rgba(139,92,246,0.55)] md:w-[calc(50%-12px)] xl:w-[calc(33.333%-16px)]"
+                  >
+                    <Image
+                      src={project.image}
+                      alt={project.title}
+                      width={640}
+                      height={360}
+                      className="h-44 w-full object-cover transition-transform duration-300 group-hover:scale-[1.02]"
+                    />
+                    <div className="flex h-full flex-col p-5">
+                      <h3 className="text-xl font-medium text-zinc-100">{project.title}</h3>
+                      <p className="mt-3 text-sm leading-relaxed text-zinc-400">{projectDict.description}</p>
+
+                      <ul className="mt-4 flex flex-wrap gap-2 text-xs text-zinc-300">
+                        {project.techStack.map((tech) => (
+                          <li key={tech} className="rounded-full border border-zinc-700 bg-zinc-900/80 px-2.5 py-1">
+                            {tech}
+                          </li>
+                        ))}
+                      </ul>
+
+                      <section className="mt-5 text-sm text-zinc-300">
+                        <p className="text-[11px] uppercase tracking-[0.2em] text-zinc-500">{dict.projects.labels.implemented}</p>
+                        <ul className="mt-2 space-y-1.5">
+                          {projectDict.implemented.map((item: string) => (
+                            <li key={item} className="flex gap-2">
+                              <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-violet-400" aria-hidden />
+                              <span>{item}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </section>
+
+                      <div className="mt-auto grid grid-cols-2 gap-2 pt-6">
+                        <Link
+                          href={project.actions.demo}
+                          target="_blank"
+                          rel={externalRel}
+                          className="inline-flex items-center justify-center gap-1 rounded-md border border-zinc-700 px-3 py-2 text-xs font-medium text-zinc-200 transition-all duration-200 hover:border-zinc-500 hover:bg-zinc-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-500"
+                        >
+                          {dict.projects.labels.demo} <ExternalLink className="size-3.5" />
+                        </Link>
+                        <Link
+                          href={project.actions.github}
+                          target="_blank"
+                          rel={externalRel}
+                          className="inline-flex items-center justify-center gap-1 rounded-md border border-zinc-700 px-3 py-2 text-xs font-medium text-zinc-200 transition-all duration-200 hover:border-zinc-500 hover:bg-zinc-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-500"
+                        >
+                          {dict.projects.labels.github} <GitBranch className="size-3.5" />
+                        </Link>
+                      </div>
+                    </div>
+                  </article>
+                );
+              })}
+            </div>
+          </Container>
+        </AnimatedSection>
+
+        <AnimatedSection id="contact" className="scroll-mt-24 py-20">
+          <Container>
+            <div className="rounded-2xl border border-zinc-800 bg-gradient-to-br from-zinc-950 to-zinc-900 p-8 text-center sm:p-10">
+              <h2 className="text-2xl font-semibold text-zinc-100 sm:text-3xl">
+                {dict.contact.title}
+              </h2>
+              <p className="mx-auto mt-4 max-w-2xl text-zinc-400">
+                {dict.contact.subtitle}
+              </p>
+              <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
+                {contacts.map((contact) => (
+                  <Link
+                    key={contact.label}
+                    href={contact.key === "resume" ? getResumePath(lang) : contact.href}
+                    target={contact.href.startsWith("http") ? "_blank" : undefined}
+                    rel={contact.href.startsWith("http") ? externalRel : undefined}
+                    className="rounded-md border border-zinc-700 px-4 py-2 text-sm text-zinc-200 transition-all duration-200 hover:border-zinc-500 hover:bg-zinc-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-500"
+                  >
+                    {contact.key === "resume" 
+                      ? (lang === "ru" ? "Резюме" : "Resume") 
+                      : (contact.key === "tg" ? "Telegram" : contact.label)}
+                  </Link>
+                ))}
+              </div>
+            </div>
+          </Container>
+        </AnimatedSection>
+      </main>
+
+      <footer className="border-t border-zinc-900 py-8">
+        <Container className="flex flex-wrap items-center justify-between gap-3 text-sm text-zinc-500">
+          <p>© {new Date().getFullYear()} {dict.hero.headline}</p>
+          <p className="inline-flex items-center gap-2">
+            <Briefcase className="size-4" /> {dict.footer.role}
+          </p>
+        </Container>
+      </footer>
+    </>
+  );
+}

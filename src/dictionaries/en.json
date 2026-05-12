@@ -1,0 +1,197 @@
+{
+  "nav": {
+    "about": "About",
+    "experience": "Experience",
+    "projects": "Projects",
+    "skills": "Skills",
+    "contact": "Contact"
+  },
+  "hero": {
+    "role": "Frontend Engineer",
+    "headline": "Pavel Skudarnov",
+    "subtitle": "Building modern web interfaces and production-ready applications with React, Next.js, and TypeScript.",
+    "supporting": "Handling frontend tasks from idea and UI to stable release: component architecture, responsiveness, performance, and polished user experience.",
+    "viewProjects": "View Projects",
+    "discussProject": "Discuss Project"
+  },
+  "metrics": [
+    { "label": "Development experience", "value": "5+ years" },
+    { "label": "Releases and improvements", "value": "20+" },
+    { "label": "Core stack", "value": "React / Next.js" },
+    { "label": "Focus", "value": "UI / UX / Performance" }
+  ],
+  "about": {
+    "title": "About Me",
+    "text": "I am a frontend engineer who likes bringing interfaces to the point where they are not only good-looking, but genuinely comfortable to use. I work with React, Next.js, and TypeScript, build clear component structures, and pay close attention to responsiveness, states, forms, loading speed, and small UX details. In projects, I care about how the interface behaves with real data, errors, mobile screens, and future changes — not just how it looks in a clean mockup."
+  },
+  "experience": {
+    "title": "Experience",
+    "items": [
+      {
+        "role": "Frontend Engineer / Web Developer",
+        "company": "Freelance / Private Projects",
+        "period": "2024 — Present",
+        "bullets": [
+          "Develop landing pages, dashboards, and product interfaces for private projects and small business tasks.",
+          "Turn designs and ideas into working Next.js/React applications: pages, components, forms, loading states, and error states.",
+          "Polish projects to a production-ready level: responsive layouts, multi-language support, themes, basic SEO, and clear data structure.",
+          "Pay attention to product perception: copy, cards, empty states, micro-interactions, and mobile behavior."
+        ]
+      },
+      {
+        "role": "Frontend Developer",
+        "company": "SberTech",
+        "period": "2020 — 2024",
+        "bullets": [
+          "Contributed to internal web platforms and interfaces for team workflows.",
+          "Built React components, pages, and backend API integrations while maintaining the existing frontend architecture.",
+          "Worked with SSR scenarios, interface states, forms, tables, and complex user flows.",
+          "Participated in code reviews, bug fixing, UI optimization, and preparing changes for release.",
+          "Helped make the UI more predictable: fewer edge-case bugs, clearer component behavior, and more stable user scenarios."
+        ]
+      },
+      {
+        "role": "Frontend Developer / QA Engineer",
+        "company": "Rambler&Co",
+        "period": "2017 — 2019",
+        "bullets": [
+          "Started as a QA Engineer: checked requirements, wrote test scenarios, found defects, and reproduced edge cases.",
+          "Gradually moved into frontend development and helped maintain client-facing interfaces.",
+          "Worked with legacy code, helped migrate separate parts of the UI to React, and simplified page maintenance.",
+          "My QA background helps me treat frontend not only as markup, but as a product scenario with errors, constraints, and real users."
+        ]
+      }
+    ]
+  },
+  "skills": {
+    "title": "Skills",
+    "groups": {
+      "frontend": "Frontend Development",
+      "ui": "UI Engineering",
+      "quality": "Product Quality",
+      "seo": "Product & Performance"
+    }
+  },
+  "projects": {
+    "title": "Projects",
+    "subtitle": "Portfolio projects where I show not only visuals, but real frontend scenarios: responsiveness, states, navigation, performance, and the feeling of a real product.",
+    "list": [
+      {
+        "title": "Frontend Portfolio",
+        "description": "A personal website built as a clean experience showcase: not overloaded, easy to scan, available in two languages, and focused on quick access to projects and background.",
+        "implemented": [
+          "Homepage with hero, experience, skills, projects, and contact section",
+          "RU/EN localization, responsive navigation, and subtle motion effects",
+          "Basic SEO setup: metadata, canonical, sitemap, and robots"
+        ],
+        "decisions": [
+          "Content is stored in dictionaries to keep two locales easy to maintain",
+          "The interface stays lightweight without unnecessary UI libraries or heavy dependencies",
+          "Page structure is designed for quick recruiter/client scanning"
+        ],
+        "production": [
+          "Responsive checks across key breakpoints",
+          "Accessible links, buttons, and clear interactive states",
+          "Deployment on a VPS behind nginx/PM2"
+        ],
+        "impact": "The site became a central point for resume, projects, and GitHub profile."
+      },
+      {
+        "title": "FlowPilot",
+        "description": "A dashboard for analytics and workflow management. The focus is readable data, clear widgets, and an interface that stays usable across different screen sizes.",
+        "implemented": [
+          "Dashboard pages with metrics, charts, and status cards",
+          "Responsive grid, sidebar navigation, and adaptive layout",
+          "Loading states, empty states, and fallback behavior"
+        ],
+        "decisions": [
+          "Charts are separated into reusable blocks to avoid duplicating display logic",
+          "Filters and interface states are kept predictable for future extension",
+          "The visual language is closer to a SaaS product than a static mockup"
+        ],
+        "production": [
+          "Error handling without empty broken screens",
+          "Optimized display of lists and cards on mobile devices",
+          "Checked readability of charts and metrics in dark/light environments"
+        ],
+        "impact": "The project demonstrates dashboard patterns, data states, and product analytics UI."
+      },
+      {
+        "title": "NordShop",
+        "description": "An e-commerce showcase for a workspace goods brand. The project is not only about polished product cards, but about the whole shopping flow: catalog, filters, product page, and cart.",
+        "implemented": [
+          "Homepage, catalog, filters, product cards, product details, and cart",
+          "RU/EN switching, dark/light theme, and responsive shopping flow",
+          "Toast notifications, loading/skeleton states, and polished cart states"
+        ],
+        "decisions": [
+          "The catalog is built around clear product cards and fast product selection",
+          "The cart is treated as part of the user journey, not just a separate screen",
+          "Visual presentation is pushed toward a premium storefront feel"
+        ],
+        "production": [
+          "Checked add-to-cart, quantity change, and cart clearing scenarios",
+          "Safe LocalStorage handling with fallback for invalid data",
+          "SEO metadata for pages and careful image handling"
+        ],
+        "impact": "The project demonstrates e-commerce UX, cart state handling, and attention to storefront details."
+      },
+      {
+        "title": "StayFinder",
+        "description": "A booking interface for property search. The goal is to make the selection flow clear: search, filters, property cards, and fast access to details.",
+        "implemented": [
+          "Search page, filters, property cards, and responsive results grid",
+          "Mobile-friendly selection flow with clear visual hierarchy",
+          "Redesign toward a calmer and more trustworthy travel experience"
+        ],
+        "decisions": [
+          "Filtering is handled on the client side so the interface reacts quickly to user actions",
+          "Property cards are built around price, location, benefits, and quick comparison",
+          "The design focuses on readability and trust rather than an overloaded travel visual"
+        ],
+        "production": [
+          "Checked empty result states and filter behavior",
+          "Optimized property images and grid behavior for mobile screens",
+          "Date and selection parameter validation"
+        ],
+        "impact": "The project demonstrates marketplace/booking patterns and complex user choice flows."
+      },
+      {
+        "title": "DevDocs",
+        "description": "A documentation website for a developer product. The main task is to explain the product quickly, provide clear navigation, and make technical content comfortable to read.",
+        "implemented": [
+          "Documentation homepage, content sections, navigation, and readable typography",
+          "Fast access to key blocks and a clear page structure",
+          "Technical UI in the style of a modern SaaS/developer tooling product"
+        ],
+        "decisions": [
+          "Content is organized around quick user questions: what it is, how to start, where the API is",
+          "Typography and spacing are tuned for long reading, not just landing-page effect",
+          "Navigation stays visible without competing with the main content"
+        ],
+        "production": [
+          "Responsive sidebar menu and stable section structure",
+          "Code highlighting and readable technical blocks",
+          "Static page generation for fast loading"
+        ],
+        "impact": "The project demonstrates developer experience, documentation structure, and technical product presentation."
+      }
+    ],
+    "labels": {
+      "implemented": "Implemented",
+      "decisions": "Engineering Decisions",
+      "production": "Production Details",
+      "impact": "Impact",
+      "demo": "Demo",
+      "github": "GitHub",
+      "caseStudy": "Case Study"
+    }
+  },
+  "contact": {
+    "title": "Open for Work & Projects",
+    "subtitle": "If you need a frontend engineer for a product, MVP, storefront, or improvement of an existing UI, I can join and bring the interface to a clean release-ready state."
+  },
+  "footer": {
+    "role": "Frontend Engineer"
+  }
+}
