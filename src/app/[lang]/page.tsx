@@ -1,5 +1,4 @@
 import Image from "next/image";
-import Link from "next/link";
 import {
   Briefcase,
   Code2,
@@ -22,9 +21,19 @@ import {
 import { getDictionary } from "@/get-dictionary";
 import { Locale } from "@/i18n-config";
 import { Navbar } from "@/components/navbar";
+import { TrackedLink } from "@/components/tracked-link";
 
 const skillIcons = [Layers, Sparkles, Wrench, Code2] as const;
 const externalRel = "noreferrer";
+
+function getProjectKey(title: string): string {
+  const normalized = title.toLowerCase();
+  if (normalized.includes("nordshop")) return "nordshop";
+  if (normalized.includes("flowpilot")) return "flowpilot";
+  if (normalized.includes("stayfinder")) return "stayfinder";
+  if (normalized.includes("devdocs")) return "devdocs";
+  return "portfolio";
+}
 
 export default async function HomePage(props: {
   params: Promise<{ lang: string }>;
@@ -252,22 +261,26 @@ export default async function HomePage(props: {
                       </section>
 
                       <div className="mt-auto grid grid-cols-2 gap-2 pt-6">
-                        <Link
+                        <TrackedLink
                           href={project.actions.demo}
                           target="_blank"
                           rel={externalRel}
+                          trackEvent="project_demo_open"
+                          trackProject={getProjectKey(project.title)}
                           className="inline-flex items-center justify-center gap-1 rounded-md border border-zinc-700 px-3 py-2 text-xs font-medium text-zinc-200 transition-all duration-200 hover:border-zinc-500 hover:bg-zinc-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-500"
                         >
                           {dict.projects.labels.demo} <ExternalLink className="size-3.5" />
-                        </Link>
-                        <Link
+                        </TrackedLink>
+                        <TrackedLink
                           href={project.actions.github}
                           target="_blank"
                           rel={externalRel}
+                          trackEvent="github_click"
+                          trackProject={getProjectKey(project.title)}
                           className="inline-flex items-center justify-center gap-1 rounded-md border border-zinc-700 px-3 py-2 text-xs font-medium text-zinc-200 transition-all duration-200 hover:border-zinc-500 hover:bg-zinc-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-500"
                         >
                           {dict.projects.labels.github} <GitBranch className="size-3.5" />
-                        </Link>
+                        </TrackedLink>
                       </div>
                     </div>
                   </article>
@@ -288,17 +301,28 @@ export default async function HomePage(props: {
               </p>
               <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
                 {contacts.map((contact) => (
-                  <Link
+                  <TrackedLink
                     key={contact.label}
                     href={contact.key === "resume" ? getResumePath(lang) : contact.href}
                     target={contact.href.startsWith("http") ? "_blank" : undefined}
                     rel={contact.href.startsWith("http") ? externalRel : undefined}
+                    trackEvent={
+                      contact.key === "resume"
+                        ? "resume_click"
+                        : contact.key === "gh"
+                          ? "github_click"
+                          : contact.key === "tg"
+                            ? "telegram_click"
+                            : contact.key === "email"
+                              ? "email_click"
+                              : undefined
+                    }
                     className="rounded-md border border-zinc-700 px-4 py-2 text-sm text-zinc-200 transition-all duration-200 hover:border-zinc-500 hover:bg-zinc-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-500"
                   >
                     {contact.key === "resume" 
                       ? (lang === "ru" ? "Резюме" : "Resume") 
                       : (contact.key === "tg" ? "Telegram" : contact.label)}
-                  </Link>
+                  </TrackedLink>
                 ))}
               </div>
             </div>

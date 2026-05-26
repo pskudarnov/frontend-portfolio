@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "../globals.css";
 import { i18n, type Locale } from "@/i18n-config";
+import { AnalyticsProvider } from "@/components/analytics-provider";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -82,7 +83,10 @@ export default async function RootLayout(props: {
 
   return (
     <html lang={lang} className={`${geistSans.variable} ${geistMono.variable} h-full`}>
-      <body className="min-h-full bg-[#07080d] text-zinc-100 antialiased">{props.children}</body>
+      <body className="min-h-full bg-[#07080d] text-zinc-100 antialiased">
+        <AnalyticsProvider />
+        {props.children}
+      </body>
     </html>
   );
 }
