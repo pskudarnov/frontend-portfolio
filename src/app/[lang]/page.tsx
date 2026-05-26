@@ -22,18 +22,10 @@ import { getDictionary } from "@/get-dictionary";
 import { Locale } from "@/i18n-config";
 import { Navbar } from "@/components/navbar";
 import { TrackedLink } from "@/components/tracked-link";
+import { getContactTrackEvent, getProjectKey, isExternalHref } from "@/lib/tracking-taxonomy";
 
 const skillIcons = [Layers, Sparkles, Wrench, Code2] as const;
 const externalRel = "noreferrer";
-
-function getProjectKey(title: string): string {
-  const normalized = title.toLowerCase();
-  if (normalized.includes("nordshop")) return "nordshop";
-  if (normalized.includes("flowpilot")) return "flowpilot";
-  if (normalized.includes("stayfinder")) return "stayfinder";
-  if (normalized.includes("devdocs")) return "devdocs";
-  return "portfolio";
-}
 
 export default async function HomePage(props: {
   params: Promise<{ lang: string }>;
@@ -66,18 +58,26 @@ export default async function HomePage(props: {
               </p>
 
               <div className="mt-7 flex flex-wrap gap-3 sm:mt-8">
-                <a
+                <TrackedLink
                   href="#projects"
+                  trackEvent={undefined}
+                  trackLabel="hero_view_projects"
+                  trackPlacement="hero"
+                  trackProject="portfolio"
                   className="rounded-md bg-zinc-100 px-5 py-3 text-sm font-medium text-zinc-900 transition-all duration-200 hover:-translate-y-0.5 hover:bg-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-500"
                 >
                   {dict.hero.viewProjects}
-                </a>
-                <a
+                </TrackedLink>
+                <TrackedLink
                   href="#contact"
+                  trackEvent={undefined}
+                  trackLabel="hero_discuss_project"
+                  trackPlacement="hero"
+                  trackProject="portfolio"
                   className="rounded-md border border-zinc-700 px-5 py-3 text-sm font-medium text-zinc-200 transition-all duration-200 hover:-translate-y-0.5 hover:border-zinc-500 hover:bg-zinc-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-500"
                 >
                   {dict.hero.discussProject}
-                </a>
+                </TrackedLink>
               </div>
 
               <ul className="mt-8 flex flex-wrap gap-2 text-sm text-zinc-400 sm:mt-10">
@@ -308,21 +308,12 @@ export default async function HomePage(props: {
                   <TrackedLink
                     key={contact.label}
                     href={contact.key === "resume" ? getResumePath(lang) : contact.href}
-                    target={contact.href.startsWith("http") ? "_blank" : undefined}
-                    rel={contact.href.startsWith("http") ? externalRel : undefined}
-                    trackEvent={
-                      contact.key === "resume"
-                        ? "resume_click"
-                        : contact.key === "gh"
-                          ? "github_click"
-                          : contact.key === "tg"
-                            ? "telegram_click"
-                            : contact.key === "email"
-                              ? "email_click"
-                              : undefined
-                    }
+                    target={isExternalHref(contact.href) ? "_blank" : undefined}
+                    rel={isExternalHref(contact.href) ? externalRel : undefined}
+                    trackEvent={getContactTrackEvent(contact.key)}
                     trackLabel={contact.key}
                     trackPlacement="contact_section"
+                    trackProject="portfolio"
                     className="rounded-md border border-zinc-700 px-4 py-2 text-sm text-zinc-200 transition-all duration-200 hover:border-zinc-500 hover:bg-zinc-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-500"
                   >
                     {contact.key === "resume" 

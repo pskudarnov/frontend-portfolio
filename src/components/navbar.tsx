@@ -113,9 +113,10 @@ export function Navbar({ lang, dict }: NavbarProps) {
                     {
                       metadata: {
                         href: getResumePath(lang),
-                        label: "resume_pdf",
                         placement: "navbar_desktop",
+                        project: "portfolio",
                         type: "link",
+                        label: "resume_pdf",
                       },
                     },
                     { flush: true },
@@ -199,9 +200,10 @@ export function Navbar({ lang, dict }: NavbarProps) {
                     {
                       metadata: {
                         href: getResumePath(lang),
-                        label: "resume_pdf",
                         placement: "navbar_mobile",
+                        project: "portfolio",
                         type: "link",
+                        label: "resume_pdf",
                       },
                     },
                     { flush: true },

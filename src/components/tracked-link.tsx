@@ -5,11 +5,11 @@ import type { ComponentProps } from "react";
 import { track } from "@/lib/analytics";
 
 type TrackEventName =
-  | "resume_click"
-  | "github_click"
-  | "project_demo_open"
   | "telegram_click"
-  | "email_click";
+  | "github_click"
+  | "resume_click"
+  | "email_click"
+  | "project_demo_open";
 
 type TrackedLinkProps = ComponentProps<typeof Link> & {
   trackEvent?: TrackEventName;
@@ -44,9 +44,10 @@ export function TrackedLink({
                 project: trackProject,
                 metadata: {
                   href: hrefToString(href),
-                  label: trackLabel,
                   placement: trackPlacement,
+                  project: trackProject,
                   type: "link",
+                  label: trackLabel,
                 },
               },
               { flush: true },

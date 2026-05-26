@@ -37,6 +37,7 @@ type TrackEvent = {
 
 const endpoint = process.env.NEXT_PUBLIC_ANALYTICS_URL ?? "/api/track";
 const site = process.env.NEXT_PUBLIC_ANALYTICS_SITE ?? "portfolio";
+const hasExplicitAnalyticsEndpoint = Boolean(process.env.NEXT_PUBLIC_ANALYTICS_URL);
 
 const FLUSH_INTERVAL_MS = 5_000;
 const FLUSH_BATCH_SIZE = 10;
@@ -111,14 +112,14 @@ async function sendBatch(events: TrackEvent[]): Promise<boolean> {
       if (sent) return true;
     }
 
-    await fetch(endpoint, {
+    const response = await fetch(endpoint, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body,
       keepalive: true,
     });
 
-    return true;
+    return response.ok;
   } catch {
     return false;
   }
@@ -187,6 +188,10 @@ export function initTracker() {
 
   try {
     ensureFlushTimer();
+
+    if (!hasExplicitAnalyticsEndpoint && process.env.NODE_ENV !== "production") {
+      console.warn("[analytics] NEXT_PUBLIC_ANALYTICS_URL is not set, fallback /api/track is used");
+    }
 
     if (!sessionStorage.getItem(SESSION_STARTED)) {
       sessionStorage.setItem(SESSION_STARTED, "1");
