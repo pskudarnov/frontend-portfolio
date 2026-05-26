@@ -14,16 +14,43 @@ type TrackEventName =
 type TrackedLinkProps = ComponentProps<typeof Link> & {
   trackEvent?: TrackEventName;
   trackProject?: string;
+  trackLabel?: string;
+  trackPlacement?: string;
 };
 
-export function TrackedLink({ trackEvent, trackProject, onClick, ...props }: TrackedLinkProps) {
+function hrefToString(href: ComponentProps<typeof Link>["href"]) {
+  return typeof href === "string" ? href : href.pathname ?? "";
+}
+
+export function TrackedLink({
+  trackEvent,
+  trackProject,
+  trackLabel,
+  trackPlacement,
+  onClick,
+  href,
+  ...props
+}: TrackedLinkProps) {
   return (
     <Link
+      href={href}
       {...props}
       onClick={(e) => {
         try {
           if (trackEvent) {
-            track(trackEvent, trackProject ? { project: trackProject } : undefined);
+            track(
+              trackEvent,
+              {
+                project: trackProject,
+                metadata: {
+                  href: hrefToString(href),
+                  label: trackLabel,
+                  placement: trackPlacement,
+                  type: "link",
+                },
+              },
+              { flush: true },
+            );
           }
         } catch {
           // swallow

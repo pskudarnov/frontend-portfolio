@@ -107,7 +107,20 @@ export function Navbar({ lang, dict }: NavbarProps) {
               <a
                 href={getResumePath(lang)}
                 target="_blank"
-                onClick={() => track("resume_click")}
+                onClick={() =>
+                  track(
+                    "resume_click",
+                    {
+                      metadata: {
+                        href: getResumePath(lang),
+                        label: "resume_pdf",
+                        placement: "navbar_desktop",
+                        type: "link",
+                      },
+                    },
+                    { flush: true },
+                  )
+                }
                 className="inline-flex items-center gap-2 rounded-md bg-violet-500 px-3 py-2 text-sm font-medium text-white transition-all duration-200 hover:bg-violet-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-500"
                 aria-label={lang === "ru" ? "Скачать резюме" : "Download resume"}
               >
@@ -180,7 +193,20 @@ export function Navbar({ lang, dict }: NavbarProps) {
               <a
                 href={getResumePath(lang)}
                 target="_blank"
-                onClick={() => track("resume_click")}
+                onClick={() =>
+                  track(
+                    "resume_click",
+                    {
+                      metadata: {
+                        href: getResumePath(lang),
+                        label: "resume_pdf",
+                        placement: "navbar_mobile",
+                        type: "link",
+                      },
+                    },
+                    { flush: true },
+                  )
+                }
                 className="flex items-center justify-center gap-2 rounded-xl bg-violet-500 py-4 text-base font-semibold text-white shadow-lg shadow-violet-500/20 transition-all hover:bg-violet-400 active:scale-[0.98]"
                 aria-label={lang === "ru" ? "Скачать резюме" : "Download resume"}
               >

@@ -18,6 +18,10 @@ type EventName =
 
 type TrackPayload = { project?: string; value?: number; metadata?: Record<string, unknown> };
 
+type TrackOptions = {
+  flush?: boolean;
+};
+
 type TrackEvent = {
   site: string;
   event: EventName;
@@ -154,7 +158,7 @@ function ensureFlushTimer() {
   }
 }
 
-export function track(event: EventName, payload: TrackPayload = {}) {
+export function track(event: EventName, payload: TrackPayload = {}, options: TrackOptions = {}) {
   try {
     enqueue({
       site,
@@ -169,7 +173,7 @@ export function track(event: EventName, payload: TrackPayload = {}) {
       metadata: payload.metadata,
     });
 
-    if (queue.length >= FLUSH_BATCH_SIZE) {
+    if (queue.length >= FLUSH_BATCH_SIZE || options.flush) {
       void flushQueue();
     }
   } catch {
