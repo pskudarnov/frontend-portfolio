@@ -64,6 +64,10 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({ error: "Service is unavailable" }, { status: 503 });
   }
 
+  if (!request.headers.get("content-type")?.toLowerCase().startsWith("application/json")) {
+    return NextResponse.json({ error: "Unsupported media type" }, { status: 415 });
+  }
+
   const ip = getTrustedClientIp(request);
   if (!ip) {
     console.error("Feedback request did not come through the trusted proxy");

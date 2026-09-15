@@ -26,6 +26,19 @@ export function FeedbackForm({ copy }: { copy: FeedbackCopy }) {
     setStatus("sending");
 
     const form = event.currentTarget;
+    ["name", "email", "message"].forEach((fieldName) => {
+      const field = form.elements.namedItem(fieldName);
+      if (field instanceof HTMLInputElement || field instanceof HTMLTextAreaElement) {
+        field.value = field.value.trim();
+      }
+    });
+
+    if (!form.checkValidity()) {
+      setStatus("idle");
+      form.reportValidity();
+      return;
+    }
+
     const formData = new FormData(form);
 
     try {
