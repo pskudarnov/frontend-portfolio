@@ -105,6 +105,16 @@ pm2 restart frontend-portfolio
 pm2 status
 ```
 
+## Feedback form → Telegram
+
+The feedback form posts to a server route, which delivers messages to a Telegram bot. The bot token is never sent to the browser.
+
+1. Create a bot with [@BotFather](https://t.me/BotFather), add it to the receiving chat or group, and send it one message.
+2. Copy `.env.example` to `.env.local` for local development; in production, add the same values to the deployment environment.
+3. Set `TELEGRAM_BOT_TOKEN` and `TELEGRAM_CHAT_ID`.
+
+The route validates input, includes a hidden bot-trap field, and applies a small per-instance rate limit. For high-traffic production deployments, add an edge rate limiter or CAPTCHA at the platform level.
+
 ## Project structure
 
 ```text

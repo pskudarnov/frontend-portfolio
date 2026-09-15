@@ -189,7 +189,21 @@
   },
   "contact": {
     "title": "Open for Work & Projects",
-    "subtitle": "If you need a frontend engineer for a product, MVP, storefront, or improvement of an existing UI, I can join and bring the interface to a clean release-ready state."
+    "subtitle": "If you need a frontend engineer for a product, MVP, storefront, or improvement of an existing UI, I can join and bring the interface to a clean release-ready state.",
+    "form": {
+      "title": "Leave feedback",
+      "description": "Tell me what you liked, what could be improved, or share an idea for a project.",
+      "nameLabel": "Name",
+      "namePlaceholder": "How should I address you?",
+      "emailLabel": "Email",
+      "emailPlaceholder": "you@example.com",
+      "messageLabel": "Message",
+      "messagePlaceholder": "Your feedback or idea…",
+      "submit": "Send message",
+      "sending": "Sending…",
+      "success": "Thank you! Your message is on its way.",
+      "error": "Could not send the message. Please try again or reach out on Telegram."
+    }
   },
   "footer": {
     "role": "Frontend Engineer"

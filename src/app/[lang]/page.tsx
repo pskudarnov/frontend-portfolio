@@ -23,6 +23,7 @@ import { Locale } from "@/i18n-config";
 import { Navbar } from "@/components/navbar";
 import { TrackedLink } from "@/components/tracked-link";
 import { getContactTrackEvent, getProjectKey, isExternalHref } from "@/lib/tracking-taxonomy";
+import { FeedbackForm } from "@/components/feedback-form";
 
 const skillIcons = [Layers, Sparkles, Wrench, Code2] as const;
 const externalRel = "noreferrer";
@@ -322,6 +323,7 @@ export default async function HomePage(props: {
                   </TrackedLink>
                 ))}
               </div>
+              <FeedbackForm copy={dict.contact.form} />
             </div>
           </Container>
         </AnimatedSection>
