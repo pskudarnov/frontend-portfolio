@@ -2,10 +2,25 @@ import { NextRequest, NextResponse } from "next/server";
 
 const MAX_REQUESTS = 3;
 const RATE_LIMIT_WINDOW_MS = 10 * 60 * 1000;
+const MAX_RATE_LIMIT_KEYS = 10_000;
 const requests = new Map<string, number[]>();
 
 function isValidEmail(value: string) {
   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
+}
+
+function pruneExpiredRequests(now: number) {
+  for (const [ip, timestamps] of requests) {
+    const recentRequests = timestamps.filter(
+      (timestamp) => now - timestamp < RATE_LIMIT_WINDOW_MS,
+    );
+
+    if (recentRequests.length === 0) {
+      requests.delete(ip);
+    } else {
+      requests.set(ip, recentRequests);
+    }
+  }
 }
 
 function isRateLimited(ip: string) {
@@ -13,6 +28,11 @@ function isRateLimited(ip: string) {
   const recentRequests = (requests.get(ip) ?? []).filter(
     (timestamp) => now - timestamp < RATE_LIMIT_WINDOW_MS,
   );
+
+  if (!requests.has(ip) && requests.size >= MAX_RATE_LIMIT_KEYS) {
+    pruneExpiredRequests(now);
+    if (requests.size >= MAX_RATE_LIMIT_KEYS) return true;
+  }
 
   if (recentRequests.length >= MAX_REQUESTS) {
     requests.set(ip, recentRequests);
@@ -24,6 +44,17 @@ function isRateLimited(ip: string) {
   return false;
 }
 
+function getTrustedClientIp(request: NextRequest) {
+  if (process.env.NODE_ENV === "development") return "local";
+
+  const proxyToken = process.env.FEEDBACK_PROXY_TOKEN;
+  const clientIp = request.headers.get("x-real-ip");
+  const providedToken = request.headers.get("x-feedback-proxy-token");
+
+  if (!proxyToken || !clientIp || providedToken !== proxyToken) return null;
+  return clientIp;
+}
+
 export async function POST(request: NextRequest) {
   const botToken = process.env.TELEGRAM_BOT_TOKEN;
   const chatId = process.env.TELEGRAM_CHAT_ID;
@@ -33,7 +64,12 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({ error: "Service is unavailable" }, { status: 503 });
   }
 
-  const ip = request.headers.get("x-forwarded-for")?.split(",")[0]?.trim() ?? "unknown";
+  const ip = getTrustedClientIp(request);
+  if (!ip) {
+    console.error("Feedback request did not come through the trusted proxy");
+    return NextResponse.json({ error: "Service is unavailable" }, { status: 503 });
+  }
+
   if (isRateLimited(ip)) {
     return NextResponse.json({ error: "Too many requests" }, { status: 429 });
   }

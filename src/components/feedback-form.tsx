@@ -64,6 +64,7 @@ export function FeedbackForm({ copy }: { copy: FeedbackCopy }) {
           <input
             required
             name="name"
+            minLength={2}
             maxLength={80}
             autoComplete="name"
             placeholder={copy.namePlaceholder}

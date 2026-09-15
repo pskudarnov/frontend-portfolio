@@ -111,9 +111,18 @@ The feedback form posts to a server route, which delivers messages to a Telegram
 
 1. Create a bot with [@BotFather](https://t.me/BotFather), add it to the receiving chat or group, and send it one message.
 2. Copy `.env.example` to `.env.local` for local development; in production, add the same values to the deployment environment.
-3. Set `TELEGRAM_BOT_TOKEN` and `TELEGRAM_CHAT_ID`.
+3. Set `TELEGRAM_BOT_TOKEN`, `TELEGRAM_CHAT_ID`, and a random `FEEDBACK_PROXY_TOKEN` (for example, `openssl rand -hex 32`).
+4. Keep Next.js reachable only through nginx, and configure nginx to overwrite the client-address and proxy-proof headers:
 
-The route validates input, includes a hidden bot-trap field, and applies a small per-instance rate limit. For high-traffic production deployments, add an edge rate limiter or CAPTCHA at the platform level.
+```nginx
+location / {
+  proxy_pass http://127.0.0.1:3000;
+  proxy_set_header X-Real-IP $remote_addr;
+  proxy_set_header X-Feedback-Proxy-Token "<FEEDBACK_PROXY_TOKEN>";
+}
+```
+
+The route validates input, includes a hidden bot-trap field, and applies a bounded per-instance rate limit. In production it accepts rate-limit addresses only from the configured nginx proxy. For high-traffic deployments, add an edge rate limiter or CAPTCHA at the platform level.
 
 ## Project structure
 
