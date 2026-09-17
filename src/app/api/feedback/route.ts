@@ -5,8 +5,14 @@ const RATE_LIMIT_WINDOW_MS = 10 * 60 * 1000;
 const MAX_RATE_LIMIT_KEYS = 10_000;
 const requests = new Map<string, number[]>();
 
+// Mirrors the WHATWG HTML living standard regex used by browsers to validate
+// <input type="email">, so a value the browser accepts (e.g. `user@localhost`)
+// is not rejected here.
+const EMAIL_PATTERN =
+  /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/;
+
 function isValidEmail(value: string) {
-  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
+  return EMAIL_PATTERN.test(value);
 }
 
 function pruneExpiredRequests(now: number) {
