@@ -102,7 +102,7 @@ export const projects: readonly Project[] = [
 ];
 
 export const contacts = [
-  { label: "Telegram", href: "https://t.me/PSkudarov", key: "tg" },
+  { label: "Telegram", href: "https://t.me/PSkudarnov", key: "tg" },
   { label: "GitHub", href: "https://github.com/pskudarnov", key: "gh" },
   { label: "Email", href: "mailto:pskudarnov@gmail.com", key: "email" },
   { label: "Resume PDF", href: "/resume.pdf", key: "resume" },

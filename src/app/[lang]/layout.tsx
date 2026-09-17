@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "../globals.css";
 import { i18n, type Locale } from "@/i18n-config";
 import { AnalyticsProvider } from "@/components/analytics-provider";
+import { MarketingAnalytics } from "@/components/marketing-analytics";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -70,8 +71,9 @@ export const metadata: Metadata = {
     images: ["/og-image.svg"],
   },
   robots: {
-    index: true,
-    follow: true,
+    index: false,
+    follow: false,
+    nocache: true,
   },
 };
 
@@ -85,6 +87,7 @@ export default async function RootLayout(props: {
     <html lang={lang} className={`${geistSans.variable} ${geistMono.variable} h-full`}>
       <body className="min-h-full bg-[#07080d] text-zinc-100 antialiased">
         <AnalyticsProvider />
+        <MarketingAnalytics />
         {props.children}
       </body>
     </html>

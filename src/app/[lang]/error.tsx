@@ -2,6 +2,7 @@
 
 import { useEffect } from "react";
 import { Container } from "@/components/container";
+import { track } from "@/lib/analytics";
 
 type ErrorProps = {
   error: Error & { digest?: string };
@@ -23,7 +24,20 @@ export default function GlobalError({ error, reset }: ErrorProps) {
         </p>
         <button
           type="button"
-          onClick={reset}
+          onClick={() => {
+            track(
+              "button_click",
+              {
+                metadata: {
+                  label: "retry",
+                  placement: "error_boundary",
+                  type: "button",
+                },
+              },
+              { flush: true },
+            );
+            reset();
+          }}
           className="mt-8 inline-flex rounded-md bg-zinc-100 px-5 py-3 text-sm font-medium text-zinc-900 transition hover:bg-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-500"
         >
           Повторить

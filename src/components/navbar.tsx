@@ -131,7 +131,20 @@ export function Navbar({ lang, dict }: NavbarProps) {
 
             {/* Burger Button */}
             <button
-              onClick={toggleMenu}
+              onClick={() => {
+                track(
+                  "button_click",
+                  {
+                    metadata: {
+                      label: isOpen ? "close_menu" : "open_menu",
+                      placement: "navbar_mobile",
+                      type: "button",
+                    },
+                  },
+                  { flush: true },
+                );
+                toggleMenu();
+              }}
               className="flex h-10 w-10 items-center justify-center rounded-md border border-zinc-800 text-zinc-400 transition-colors hover:border-zinc-700 hover:text-zinc-100 md:hidden"
               aria-label={isOpen ? "Close menu" : "Open menu"}
             >
