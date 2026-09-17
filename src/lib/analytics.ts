@@ -1,20 +1,17 @@
 "use client";
 
 import { onCLS, onFCP, onINP, onLCP, onTTFB, type Metric } from "web-vitals";
+import type { PortfolioTrackEvent } from "@/lib/tracking-taxonomy";
 
 type EventName =
   | "page_view"
   | "session_start"
   | "session_end"
-  | "resume_click"
-  | "github_click"
-  | "project_demo_open"
-  | "telegram_click"
-  | "email_click"
   | "scroll_depth"
   | "time_on_page"
   | "frontend_error"
-  | "web_vitals";
+  | "web_vitals"
+  | PortfolioTrackEvent;
 
 type TrackPayload = { project?: string; value?: number; metadata?: Record<string, unknown> };
 

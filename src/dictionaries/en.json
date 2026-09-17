@@ -190,6 +190,7 @@
   "contact": {
     "title": "Open for Work & Projects",
     "subtitle": "If you need a frontend engineer for a product, MVP, storefront, or improvement of an existing UI, I can join and bring the interface to a clean release-ready state.",
+    "bookCall": "Book a call",
     "form": {
       "title": "Leave feedback",
       "description": "Tell me what you liked, what could be improved, or share an idea for a project.",
