@@ -3,16 +3,10 @@
 import Link from "next/link";
 import type { ComponentProps } from "react";
 import { track } from "@/lib/analytics";
-
-type TrackEventName =
-  | "telegram_click"
-  | "github_click"
-  | "resume_click"
-  | "email_click"
-  | "project_demo_open";
+import type { PortfolioTrackEvent } from "@/lib/tracking-taxonomy";
 
 type TrackedLinkProps = ComponentProps<typeof Link> & {
-  trackEvent?: TrackEventName;
+  trackEvent?: PortfolioTrackEvent;
   trackProject?: string;
   trackLabel?: string;
   trackPlacement?: string;

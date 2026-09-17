@@ -81,6 +81,16 @@ Open locally:
 http://localhost:3000
 ```
 
+## Calendly setup
+
+To show the call-booking button in the contact section, add the public event URL from Calendly to your local `.env` file or deployment environment:
+
+```text
+NEXT_PUBLIC_CALENDLY_URL=https://calendly.com/your-account/your-event
+```
+
+Connect Google Calendar in Calendly to keep the availability current. Calendly manages the free slots, booking confirmation, and calendar invitations; do not add Calendly or Google Calendar credentials to this app. If the variable is omitted, the booking button is hidden.
+
 ## Quality checks
 
 ```bash

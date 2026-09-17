@@ -1,6 +1,7 @@
 import Image from "next/image";
 import {
   Briefcase,
+  CalendarDays,
   Code2,
   ExternalLink,
   GitBranch,
@@ -32,6 +33,7 @@ export default async function HomePage(props: {
 }) {
   const { lang } = (await props.params) as { lang: Locale };
   const dict = await getDictionary(lang);
+  const calendlyUrl = process.env.NEXT_PUBLIC_CALENDLY_URL?.trim();
 
   return (
     <>
@@ -304,6 +306,21 @@ export default async function HomePage(props: {
                 {dict.contact.subtitle}
               </p>
               <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
+                {calendlyUrl && (
+                  <TrackedLink
+                    href={calendlyUrl}
+                    target="_blank"
+                    rel={externalRel}
+                    trackEvent="calendly_click"
+                    trackLabel="calendly"
+                    trackPlacement="contact_section"
+                    trackProject="portfolio"
+                    className="inline-flex items-center gap-2 rounded-md bg-violet-500 px-4 py-2 text-sm font-medium text-white transition-all duration-200 hover:-translate-y-0.5 hover:bg-violet-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-300 focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950"
+                  >
+                    <CalendarDays className="size-4" aria-hidden />
+                    {dict.contact.bookCall}
+                  </TrackedLink>
+                )}
                 {contacts.map((contact) => (
                   <TrackedLink
                     key={contact.label}

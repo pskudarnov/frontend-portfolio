@@ -1,4 +1,5 @@
 export type PortfolioTrackEvent =
+  | "calendly_click"
   | "telegram_click"
   | "github_click"
   | "resume_click"
